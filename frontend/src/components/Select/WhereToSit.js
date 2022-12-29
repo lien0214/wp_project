@@ -10,3 +10,5 @@ const WhereToSit = (person, setPerson) => {
         </div>
     )
 }
+
+export default WhereToSit;

@@ -1,6 +1,6 @@
 import './SeatSelect.css';
 import React, { useState } from 'react';
-import HomePage from '../components/Hompage';
+import HomePage from '../components/Homepage';
 import Select from '../components/Select';
 import Restart from '../components/Restart';
 

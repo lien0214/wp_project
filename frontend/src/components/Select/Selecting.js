@@ -1,5 +1,5 @@
 import './Selecting.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 const Selecting = (register, person, setPerson) => {
 

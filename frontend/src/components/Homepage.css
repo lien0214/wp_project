@@ -1,0 +1,35 @@
+.Homepage{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.toRent{
+    height: 30%;
+    width: 30%;
+    border-radius: 5%;
+    background-color: #6e8be1;
+    /* display: flex; */
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+    text-align: center;
+    line-height: 50%;
+    font-size: 2rem;
+}
+
+.toReturn{
+    height: 30%;
+    width: 30%;
+    border-radius: 5%;
+    background-color: #c159b7;
+    /* display: flex; */
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-20%, -50%);
+    text-align: center;
+    line-height: 50%;
+    font-size: 2rem;
+}
