@@ -8,3 +8,4 @@ const Restart = ({backToHomeOnClick}) => {
         </div>
     )
 }
+export default Restart;

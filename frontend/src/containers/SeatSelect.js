@@ -8,7 +8,7 @@ import Restart from '../components/Restart';
 const homepage = 0, select = 1, restart = 2;
 const SeatSelect = () => {
     const [state, setState] = useState(homepage);
-    const [register, setRegister] = useState(false); // rent or return
+    const [register, setRegister] = useState(true); // register/rent or return
 
     // func to change state in homepage
     const startRentOnClick = () => {
