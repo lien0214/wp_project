@@ -1,4 +1,5 @@
 import './WhereToSit.css';
+import Button from '@material-ui/core/Button';
 import React from 'react';
 
 const login = 0, wheretosit = 1, selecting = 2;
@@ -26,8 +27,12 @@ const WhereToSit = ({person, setPerson, setState}) => {
     return (
         <div className='WhereToSit'>
             {/* two photo and two button choosing outside or inside to sit */}
-            <button className='Lishin' onClick={LiShinOnClick}>裡新</button>
-            <button className='ShinGuan' onClick={ShinGuanOnClick}>新館</button>
+            <div className='Lishin'>
+                <Button color='primary' variant="contained" style={{fontSize: '25px', color: 'white'}} onClick={LiShinOnClick}>裡新</Button>
+            </div>
+            <div className='ShinGuan'>
+                <Button color='secondary' variant="contained" style={{fontSize: '25px', color: 'white'}} onClick={ShinGuanOnClick}>新館</Button>
+            </div>
         </div>
     )
 }

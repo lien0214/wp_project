@@ -36,8 +36,8 @@
     height: 3rem;
     background: #26ca299b;
     border: none;
-    color: #fff;
-    border-radius: 10%;
+    /* color: #fff; */
+    border-radius: 10px;
     text-align: center;
     line-height: 1em;
     font-size: 1rem;
