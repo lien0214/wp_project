@@ -7,16 +7,17 @@ const WhereToSit = ({person, setPerson, setState}) => {
     const LiShinOnClick = () => {
         // console.log("LiShinOnClick")
         setPerson({
-            acount: person.acount,
+            acount: person.account,
             password: person.password,
             wheretosit: Lishin
         });
         setState(selecting);
+        // console.log("wheretosit person: " + person)
     }
     const ShinGuanOnClick = () => {
         // console.log("ShinGuanOnClick")
         setPerson({
-            acount: person.acount,
+            acount: person.account,
             password: person.password,
             wheretosit: ShinGuan
         });

@@ -12,12 +12,13 @@ const Hompage = ({startRentOnClick, startReturnOnClick}) => {
 
     return (
         <div className='HomePage'>
-            <button className='toRent' onClick={setRentOnClick}>租借座位</button>
-            <button className='toReturn' onClick={setReturnOnClick}>歸還座位</button>
-            {/* 
-                todo: start rent or return on click
-                todo: further outfit
-            */}
+            <div className='Header'></div>
+            <div className='Body'>
+                <div className='HomepageImg'>to be pic</div>
+                <button className='toRent' onClick={setRentOnClick}>租借座位</button>
+                <button className='toReturn' onClick={setReturnOnClick}>歸還座位</button>
+            </div>
+            <div footer className='Footer'></div>
         </div>
     )
 }

@@ -8,8 +8,11 @@ const login = 0, wheretosit = 1, selecting = 2;
 const ShinGuan = 0, Lishin = 1;
 const Select = ({register, endOnClick}) => {
     const [state, setState] = useState(login);
-    
     const [person, setPerson] = useState({});
+
+    console.log("select person ", person);
+
+
 
     return (
         <div className='Select'>
@@ -24,9 +27,11 @@ const Select = ({register, endOnClick}) => {
                 setPerson={setPerson}
                 setState={setState}
             />}
+            
             {state === selecting && <Selecting
                 register={register}            
                 setPerson={setPerson}
+                person={person}
                 setState={setState}
                 endOnClick={endOnClick}
             />}
