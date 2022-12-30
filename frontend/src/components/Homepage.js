@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 
 const Hompage = ({startRentOnClick, startReturnOnClick}) => {
 
-    function setRentOnClick(){
+    const setRentOnClick = () => {
         startRentOnClick()
     }
-    function setReturnOnClick(){
-        startRentOnClick()
+    const setReturnOnClick = () => {
+        startReturnOnClick()
     }
 
     return (
