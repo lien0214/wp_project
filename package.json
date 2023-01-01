@@ -8,5 +8,8 @@
   "scripts": {
     "frontend": "cd ./frontend && yarn start",
     "backend": "cd ./backend && yarn server"
+  },
+  "dependencies": {
+    "react-scripts": "^5.0.1"
   }
 }
