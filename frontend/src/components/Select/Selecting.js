@@ -4,6 +4,8 @@ import Cell from './Cell';
 import Cover from './Cover';
 import React, { useState } from 'react';
 
+
+const login = 0, wheretosit = 1, selecting = 2;
 const ShinGuan = 0, Lishin = 1;
 const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
 
@@ -12,8 +14,8 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
     const [people, setpeople] = useState([]);
     //then get data from backend, maybe list of objects with accounts' information
 
-    const appendPersonOnClick = () => {
-        setRegisteredSeat([...people, person]);
+    const appendPerson = () => {
+        setpeople([...people, person]);
     }
     const coverOnclick = (newCoverPerson) => {
         setCover(true);
@@ -23,6 +25,17 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
         setCover(false);
         setCoverPerson({});
     }
+    const setPersonOnclick = (seatID) => {
+        let newPerson = person;
+        newPerson['seatID'] = seatID;
+        setPerson(newPerson);
+        appendPerson();
+        endOnClick();
+    }
+    const backToLoginOnClick = () => {
+        setState(login);
+    }
+    
 
 
     const { rowSize, columnSize, size, seat } = seatHandling(register, people, person);
@@ -70,7 +83,16 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
                     })}
                 </div>
             )}
-            <></>
+            {register === true && 
+                <div className='submitForm'>
+                    {/* submit text and a button for submit by calling setPersonOnClick */}
+                </div>
+            }
+            {register === false &&
+                <div className='confirmSeatID'>
+                    {/* two button for yes(endOnClick) or no(backToLoginOnClick) */}
+                </div>
+            }
         </div>
     )
 

@@ -1,5 +1,3 @@
-import react from "react";
-
 const ShinGuan = 0, Lishin = 1;
 const seatHandling = (register, people, person) => {
     let seat = [];
@@ -47,7 +45,7 @@ const seatHandling = (register, people, person) => {
         for(let r = 0; r < rowSize; r++) {
             for(let c = 0; c < columnSize; c++) {
                 if(person.seatID === seat[r][c].id) {
-                    seat[r][c].ifReturn === true;
+                    seat[r][c].ifReturn = true;
                 }
             }
         }

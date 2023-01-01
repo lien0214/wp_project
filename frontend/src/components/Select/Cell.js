@@ -1,9 +1,10 @@
 import React from "react";
 
-const Cell = ({cellInfo}) => {
+const Cell = ({cellInfo, coverOnClick}) => {
     return (
-        <div className="Cell">
-
+        <div className="Cell" onClick={(cellInfo) => coverOnClick(cellInfo.person)}>
+            {/* button to trigger coveronclick */}
+            cellInfo.id
         </div>
     )
 }

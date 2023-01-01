@@ -1,5 +1,6 @@
 import './SeatSelect.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import HomePage from '../components/Homepage';
 import Select from '../components/Select';
 import Restart from '../components/Restart';
@@ -10,6 +11,21 @@ const homepage = 0, select = 1, restart = 2;
 const SeatSelect = () => {
     const [state, setState] = useState(homepage);
     const [register, setRegister] = useState(true); // register/rent or return
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        switch(state) {
+            case homepage:
+                navigate('/HomePage');
+                break;
+            case select:
+                navigate('/Select');
+                break;
+            case restart:
+                navigate('/Restart');
+                break;
+        }
+    }, [state]);
 
     // func to change state in homepage
     const startRentOnClick = () => {
