@@ -18,3 +18,13 @@ const Selecting = ({register, setPerson, person, setState, endOnClick}) => {
     
 }
 export default Selecting;
+
+// const handleRent = async () => {
+//     const {
+//       data: { message,  },
+//     } = await axios.rent('/infor', {
+//       account,
+//       password,
+//       position,
+//     });
+// }

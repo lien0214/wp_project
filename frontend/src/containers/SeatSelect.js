@@ -19,6 +19,10 @@ const SeatSelect = () => {
         setRegister(false);
         setState(select);
     }
+    const startSearchOnClick = () => {
+        setRegister(false);
+        setState(select);
+    }
     // func to change state in select
     const endOnClick = () => {
         setState(restart);
@@ -36,6 +40,7 @@ const SeatSelect = () => {
             {(state === homepage) && <HomePage
                 startRentOnClick={startRentOnClick}
                 startReturnOnClick={startReturnOnClick}
+                startSearchOnClick={startSearchOnClick}
             />}
             {(state === select) && <Select
                 endOnClick={endOnClick}

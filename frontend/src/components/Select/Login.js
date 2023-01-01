@@ -1,4 +1,5 @@
 import './Login.css';
+import Button from '@material-ui/core/Button';
 import React, { useState } from 'react';
 
 const login = 0, wheretosit = 1, selecting = 2;
@@ -34,11 +35,13 @@ const Login = ({register, setPerson, setState}) => {
                 value={password}
                 onChange={passwordChange}
             />
-            <button
+            <div className='inputCheck'>
+                <Button
                 type='button'
-                className='inputCheck'
+                disabled={!account || !password}
                 onClick={submitOnClick}
-            >Login</button>
+                >Login</Button>
+            </div>
         </div>
     )
 }

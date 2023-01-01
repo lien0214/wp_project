@@ -3,7 +3,8 @@
     display: inline-flex;
 }
 
-.Login > * {
+/* .Login > * { */
+.inputAccount, .inputPassword{
     position: relative;
     top: 40%;
     left: 50%;
@@ -36,10 +37,13 @@
     height: 3rem;
     background: #26ca299b;
     border: none;
-    /* color: #fff; */
     border-radius: 10px;
-    text-align: center;
+    /* text-align: center;
     line-height: 1em;
-    font-size: 1rem;
+    font-size: 1rem; */
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
     color:rgba(0, 0, 0);
 }
