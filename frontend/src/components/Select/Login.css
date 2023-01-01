@@ -1,6 +1,7 @@
 .Login{
     flex-direction: column;
     display: inline-flex;
+    height: 80vh;
 }
 
 /* .Login > * { */

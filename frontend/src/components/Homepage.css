@@ -1,63 +1,33 @@
-.Header{
+/* .HomePage{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
     width: 100%;
-    height: 10%;
-    background-color: bisque;
-}
-
-.Body{
-    width: 100%;
-    height: 80%;
+    height: 100%;
     background-color:#fff;
-    display: flex;
     align-items: center;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-}
-
-.Footer{
-    width: 100%;
-    height: 10%;
-    background-color: bisque;
-}
-
-
-.Homepage{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
 }
 
 .HomepageImg{
-    width: 40%;
-    height: 70%;
-    background-color: aqua;
-    border-radius: 5%;
+    width: 60%;
+    height: 80%;
     position: absolute;
-    top: 15%;
-    left: 10%;
-    transform: translate(-5%, 0%);
-    text-align: center;
-    line-height: 550%;
-    font-size: 2rem;
-}
+    top: 10%;
+    left: 0%;
+} */
 
-.toRent, .toReturn, .toSearch{
+/* .toRent, .toReturn, .toSearch{
     height: 10%;
     width: 15%;
-    /* border-radius: 10%; */
-    /* background-color: #6e8be1; */
     display: flex;
     position: absolute;
     top: 30%;
-    left: 70%;
-    transform: translate(-20%, -50%);
+    left: 85%;
+    transform: translate(-85%, -50%);
     text-align: center;
-    /* line-height: 50%; */
-    /* font-size: 10rem; */
 }
 
 .toReturn{
-    /* background-color: #c159b7; */
     top: 50%;
 }
 
@@ -65,4 +35,4 @@
     background-color: #c159b7;
     border-radius: 4px;
     top: 70%;
-}
+} */

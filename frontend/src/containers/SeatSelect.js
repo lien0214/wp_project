@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import HomePage from '../components/Homepage';
 import Select from '../components/Select';
 import Restart from '../components/Restart';
+import Box from '@mui/material/Box';
 
 // set state constants
 const homepage = 0, select = 1, restart = 2;
@@ -36,7 +37,7 @@ const SeatSelect = () => {
     // some func to add
 
     return (
-        <div className="SeatSelect">
+        <Box className="SeatSelect">
             {(state === homepage) && <HomePage
                 startRentOnClick={startRentOnClick}
                 startReturnOnClick={startReturnOnClick}
@@ -49,7 +50,7 @@ const SeatSelect = () => {
             {(state === restart) && <Restart
                 backToHomeOnClick={backToHomeOnClick}
             />}
-        </div>
+        </Box>
     )
 
 }
