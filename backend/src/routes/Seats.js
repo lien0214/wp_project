@@ -54,7 +54,7 @@ router.post("/infor", async function (req, res) {
           else {
             const infor = await SeatInfor.findOne({ account, password });
             res.json({
-              message: "Seat found!",
+              message: `Seat found at position ${infor.wheretosit}, ${infor.seatID}.`,
               whr: infor.wheretosit, 
               pos: infor.seatID
             });
