@@ -11,21 +11,21 @@ const homepage = 0, select = 1, restart = 2;
 const SeatSelect = () => {
     const [state, setState] = useState(homepage);
     const [register, setRegister] = useState(true); // register/rent or return
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    useEffect(() => {
-        switch(state) {
-            case homepage:
-                navigate('/HomePage');
-                break;
-            case select:
-                navigate('/Select');
-                break;
-            case restart:
-                navigate('/Restart');
-                break;
-        }
-    }, [state]);
+    // useEffect(() => {
+    //     switch(state) {
+    //         case homepage:
+    //             navigate('/HomePage');
+    //             break;
+    //         case select:
+    //             navigate('/Select');
+    //             break;
+    //         case restart:
+    //             navigate('/Restart');
+    //             break;
+    //     }
+    // }, [state]);
 
     // func to change state in homepage
     const startRentOnClick = () => {

@@ -11,20 +11,20 @@ const ShinGuan = 0, Lishin = 1;
 const Select = ({register, endOnClick}) => {
     const [state, setState] = useState(login);
     const [person, setPerson] = useState({});
-    const navigate = useNavigate();
-    useEffect(() => {
-        switch(state) {
-            case login:
-                navigate('/Login');
-                break;
-            case wheretosit:
-                navigate('/WhereToSit');
-                break;
-            case selecting:
-                navigate('/Selecting');
-                break;
-        }
-    }, [state]);
+    // const navigate = useNavigate();
+    // useEffect(() => {
+    //     switch(state) {
+    //         case login:
+    //             navigate('/Login');
+    //             break;
+    //         case wheretosit:
+    //             navigate('/WhereToSit');
+    //             break;
+    //         case selecting:
+    //             navigate('/Selecting');
+    //             break;
+    //     }
+    // }, [state]);
 
 
 
