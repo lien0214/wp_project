@@ -54,7 +54,6 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
 const theme = createTheme({
     palette: {
       primary: {
@@ -62,7 +61,6 @@ const theme = createTheme({
       },
     },
   });
-
 const WhereToSit = ({person, setPerson, setState}) => {
   
     const login = 0, wheretosit = 1, selecting = 2;
@@ -75,11 +73,10 @@ const WhereToSit = ({person, setPerson, setState}) => {
             password: person.password,
             wheretosit: Lishin
         });
+        console.log(person)
         setState(selecting);
-        // console.log("wheretosit person: " + person)
     }
     const ShinGuanOnClick = () => {
-        // console.log("ShinGuanOnClick")
         setPerson({
             acount: person.account,
             password: person.password,

@@ -36,9 +36,10 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
         setState(login);
     }
     
-
+    console.log("get in selecting");
 
     const { rowSize, columnSize, size, seat } = seatHandling(register, people, person);
+    //const seat = [];
     /* seat is 2-D list of {
         id: id,
         registered: false,      
@@ -46,6 +47,7 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
         person: {},
         ifReturn: false
     }*/
+    console.log("after seathandling");
 
     return (
         <div className='Selecting'>
