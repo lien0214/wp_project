@@ -1,4 +1,3 @@
-
 import React, {useSate} from 'react';
 
 const Restart = ({backToHomeOnClick}) => {

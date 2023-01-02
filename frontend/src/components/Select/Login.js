@@ -82,7 +82,8 @@ const Login = ({register, setPerson, setState}) => {
     return(
         <ThemeProvider theme={createTheme()}>
         
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square 
+                >
         <CssBaseline />
             <Box
                 sx={{
@@ -136,6 +137,7 @@ const Login = ({register, setPerson, setState}) => {
                     type="submit"
                     fullWidth
                     variant="contained"
+                    color='primary'
                     sx={{ mt: 3, mb: 2 }}
                     disabled={!account || !password}
                     onClick={submitOnClick}

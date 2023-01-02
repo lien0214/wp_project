@@ -2,6 +2,10 @@ import seatHandling from '../../util/seatHandling';
 import Cell from './Cell';
 import Cover from './Cover';
 import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import CssBaseline from '@mui/material/CssBaseline';
+import Paper from '@mui/material/Paper';
 
 
 const login = 0, wheretosit = 1, selecting = 2;
@@ -47,29 +51,49 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
     console.log(seat);
 
     return (
-        <div className='Selecting'>
-            {cover && <Cover
+        <Grid container component="main" sx={{ height: '80vh' }}>
+            <CssBaseline />
+            {/* {cover && <Cover
                 coverPerson={coverPerson}
                 noCoverOnClick={noCoverOnClick}
-            />}
+            />} */}
             {person.wheretosit === ShinGuan && (
-                <div className='ShinGuan'>
-                    {seat.map((row, r) => {
-                        <div id={'row' + r.toString()} key={'row' + r.toString()}>
-                            {row.map((cell, c) =>
-                                <Cell
-                                    cellInfo={cell}
-                                    coverOnClick={coverOnclick}
-                                    key={r + '-' + c}
-                                />
-                            )}
-                        </div>
-                    })}
-                </div>
+                <Grid item xs={9} sm={9} md={9} component={Paper} elevation={6} square>
+                    <Box sx={{
+                        my: 4,
+                        mx: 4,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        }}>
+                        {seat.map((row, r) => {
+                            return( <Box id={'row' + r.toString()} key={'row' + r.toString()}
+                                        sx={{
+                                            my: 2,
+                                            mx: 2,
+                                            alignItems: 'center',
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                        }}>
+                                {row.map((cell, c) =>
+                                    <Cell
+                                        cellInfo={cell}
+                                        coverOnClick={coverOnclick}
+                                        // seat={}
+                                        key={r + '-' + c}
+                                    />
+                                )}
+                            </Box>
+                            )
+                        })}
+                    </Box>
+                    
+                </Grid>
             )}
             {person.wheretosit === Lishin && (
                 <div className='LiShin'>
                     {seat.map((row, r) => {
+                        return (
                         <div id={'row' + r.toString()} key={'row' + r.toString()}>
                             {row.map((cell, c) =>
                                 <Cell
@@ -79,6 +103,7 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
                                 />
                             )}
                         </div>
+                        )
                     })}
                 </div>
             )}
@@ -92,7 +117,7 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
                     {/* two button for yes(endOnClick) or no(backToLoginOnClick) */}
                 </div>
             }
-        </div>
+        </Grid>
     )
 
 }
