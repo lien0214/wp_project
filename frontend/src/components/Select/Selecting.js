@@ -34,8 +34,6 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
     const backToLoginOnClick = () => {
         setState(login);
     }
-    
-    console.log("get in selecting");
 
     const { rowSize, columnSize, size, seat } = seatHandling(register, people, person);
     //const seat = [];
@@ -46,7 +44,7 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
         person: {},
         ifReturn: false
     }*/
-    console.log("after seathandling");
+    console.log(seat);
 
     return (
         <div className='Selecting'>
