@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 
 const login = 0, wheretosit = 1, selecting = 2;
 const ShinGuan = 0, Lishin = 1;
-const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
+const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) => {
 
     const [cover, setCover] = useState(false);
     const [coverPerson, setCoverPerson] = useState({});
@@ -33,10 +33,11 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
         newPerson['seatID'] = seatID;
         setPerson(newPerson);
         appendPerson();
+        setSelectState(login);
         endOnClick();
     }
     const backToLoginOnClick = () => {
-        setState(login);
+        setSelectState(login);
     }
 
     const { rowSize, columnSize, size, seat } = seatHandling(register, people, person);

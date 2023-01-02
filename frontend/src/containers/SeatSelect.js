@@ -6,64 +6,50 @@ import Select from '../components/Select';
 import Restart from '../components/Restart';
 import Box from '@mui/material/Box';
 
-// set state constants
+// set seatSelectState constants
+const rent = 0, ret = 1, search = 2;
 const homepage = 0, select = 1, restart = 2;
 const SeatSelect = () => {
-    const [state, setState] = useState(homepage);
-    const [register, setRegister] = useState(true); // register/rent or return
-    // const navigate = useNavigate();
+    const [seatSelectState, setSeatSelectState] = useState(homepage);
+    const [register, setRegister] = useState(rent); // register/rent or return
 
-    // useEffect(() => {
-    //     switch(state) {
-    //         case homepage:
-    //             navigate('/HomePage');
-    //             break;
-    //         case select:
-    //             navigate('/Select');
-    //             break;
-    //         case restart:
-    //             navigate('/Restart');
-    //             break;
-    //     }
-    // }, [state]);
-
-    // func to change state in homepage
+    // func to change seatSelectState in homepage
     const startRentOnClick = () => {
-        setRegister(true);
-        setState(select);
+        setRegister(rent);
+        setSeatSelectState(select);
     }
     const startReturnOnClick = () => {
-        setRegister(false);
-        setState(select);
+        setRegister(ret);
+        setSeatSelectState(select);
     }
     const startSearchOnClick = () => {
-        setRegister(false);
-        setState(select);
+        setRegister(search);
+        setSeatSelectState(select);
     }
-    // func to change state in select
+    // func to change seatSelectState in select
     const endOnClick = () => {
-        setState(restart);
+        setSeatSelectState(restart);
     }
-    // func to change state in restart
+    // func to change seatSelectState in restart
     const backToHomeOnClick = () => {
-        setRegister(false);
-        setState(homepage);
+        setRegister(rent);
+        setSeatSelectState(homepage);
     }
 
     // some func to add
 
     return (
         <Box className="SeatSelect">
-            {(state === homepage) && <HomePage
+            {(seatSelectState === homepage) && <HomePage
                 startRentOnClick={startRentOnClick}
                 startReturnOnClick={startReturnOnClick}
                 startSearchOnClick={startSearchOnClick}
             />}
-            {(state === select) && <Select
+            {(seatSelectState === select) && <Select
                 endOnClick={endOnClick}
                 register={register}
             />}
-            {(state === restart) && <Restart
+            {(seatSelectState === restart) && <Restart
                 backToHomeOnClick={backToHomeOnClick}
             />}
         </Box>

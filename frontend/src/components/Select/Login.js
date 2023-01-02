@@ -64,7 +64,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const login = 0, wheretosit = 1, selecting = 2;
-const Login = ({register, setPerson, setState}) => {
+const Login = ({register, setPerson, setSelectState}) => {
     const [account, setAccount] = useState('');
     const [password, setPassword] = useState('');
 
@@ -76,7 +76,9 @@ const Login = ({register, setPerson, setState}) => {
     }
     const submitOnClick = () => {
         setPerson({account: account, password: password});
-        setState(register ? wheretosit : selecting);
+        setAccount('');
+        setPassword('');
+        setSelectState(register ? wheretosit : selecting);
     }
 
     return(

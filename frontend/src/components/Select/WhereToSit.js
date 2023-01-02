@@ -61,7 +61,7 @@ const theme = createTheme({
       },
     },
   });
-const WhereToSit = ({person, setPerson, setState}) => {
+const WhereToSit = ({person, setPerson, setSelectState}) => {
   
     const login = 0, wheretosit = 1, selecting = 2;
     const ShinGuan = 0, Lishin = 1;
@@ -74,7 +74,7 @@ const WhereToSit = ({person, setPerson, setState}) => {
             wheretosit: Lishin
         });
         console.log(person)
-        setState(selecting);
+        setSelectState(selecting);
     }
     const ShinGuanOnClick = () => {
         setPerson({
@@ -82,7 +82,7 @@ const WhereToSit = ({person, setPerson, setState}) => {
             password: person.password,
             wheretosit: ShinGuan
         });
-        setState(selecting);
+        setSelectState(selecting);
     }
 
   return (

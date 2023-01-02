@@ -6,10 +6,11 @@ import WhereToSit from './Select/WhereToSit';
 import Selecting from './Select/Selecting';
 import Grid from '@mui/material/Grid';
 
+const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
 const ShinGuan = 0, Lishin = 1;
 const Select = ({register, endOnClick}) => {
-    const [state, setState] = useState(login);
+    const [selectState, setSelectState] = useState(login);
     const [person, setPerson] = useState({});
     // const navigate = useNavigate();
     // useEffect(() => {
@@ -34,22 +35,22 @@ const Select = ({register, endOnClick}) => {
             alignItems="center"
             justifyContent="center">
             {/* check folder select */}
-            {state === login && <Login
+            {register !== search && selectState === login && <Login
                 register={register}
                 setPerson={setPerson}
-                setState={setState}
+                setSelectState={setSelectState}
             />}
-            {register && state === wheretosit && <WhereToSit
+            {register === rent && selectState === wheretosit && <WhereToSit
                 person={person}
                 setPerson={setPerson}
-                setState={setState}
+                setSelectState={setSelectState}
             />}
             
-            {state === selecting && <Selecting
+            {selectState === selecting && <Selecting
                 register={register}            
                 setPerson={setPerson}
                 person={person}
-                setState={setState}
+                setSelectState={setSelectState}
                 endOnClick={endOnClick}
             />}
         </Grid>
