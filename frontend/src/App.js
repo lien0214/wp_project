@@ -51,7 +51,7 @@ function App() {
                 <EggIcon sx={{height: "3vh", width: "3vh"}}/>
               </Avatar>
               <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" variant="body2">
-                ._.
+                . .
               </Link>
         </Box>
         

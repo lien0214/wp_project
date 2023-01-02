@@ -6,7 +6,12 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CssBaseline from '@mui/material/CssBaseline';
 import Paper from '@mui/material/Paper';
-
+import Avatar from '@mui/material/Avatar';
+import NumbersIcon from '@mui/icons-material/Numbers';
+import Typography from '@mui/material/Typography';
+import Button from '@material-ui/core/Button';
+import Link from '@mui/material/Link';
+import TextField from '@mui/material/TextField';
 
 const login = 0, wheretosit = 1, selecting = 2;
 const ShinGuan = 0, Lishin = 1;
@@ -28,7 +33,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         setCover(false);
         setCoverPerson({});
     }
-    const setPersonOnclick = (seatID) => {
+    const setPersonOnClick = (seatID) => {
         let newPerson = person;
         newPerson['seatID'] = seatID;
         setPerson(newPerson);
@@ -59,7 +64,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                 noCoverOnClick={noCoverOnClick}
             />} */}
             {person.wheretosit === ShinGuan && (
-                <Grid item xs={9} sm={9} md={9} component={Paper} elevation={6} square>
+                <Grid className='ShinGuan' item xs={9} sm={9} md={9} component={Paper} elevation={6} square>
                     <Box sx={{
                         my: 10,
                         mx: 4,
@@ -69,7 +74,8 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                         overflow: 'auto',
                         }}>
                         {seat.map((row, r) => {
-                            return( <Box id={'row' + r.toString()} key={'row' + r.toString()}
+                            return(
+                            <Box id={'row' + r.toString()} key={'row' + r.toString()}
                                         sx={{
                                             my: 1,
                                             mx: 2,
@@ -80,6 +86,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                                         }}>
                                 {row.map((cell, c) =>
                                     <Cell
+                                        where={ShinGuan}
                                         cellInfo={cell}
                                         coverOnClick={coverOnclick}
                                         // seat={}
@@ -90,35 +97,159 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                             )
                         })}
                     </Box>
-                    
                 </Grid>
             )}
             {person.wheretosit === Lishin && (
-                <div className='LiShin'>
+                <Grid className='LiShin' item xs={9} sm={9} md={9} component={Paper} elevation={6} square>
+                    <Box sx={{
+                        my: 8,
+                        mx: 4,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
+                        overflow: 'auto',
+                        }}>
                     {seat.map((row, r) => {
                         return (
-                        <div id={'row' + r.toString()} key={'row' + r.toString()}>
+                        <Box id={'row' + r.toString()} key={'row' + r.toString()}
+                            sx={{
+                                my: 1,
+                                mx: 2,
+                                alignItems: 'center',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent:'center',
+                            }}>
                             {row.map((cell, c) =>
                                 <Cell
+                                    where={Lishin}
                                     cellInfo={cell}
                                     coverOnClick={coverOnclick}
                                     key={r + '-' + c}
                                 />
                             )}
-                        </div>
+                        </Box>
                         )
                     })}
-                </div>
+                </Box>
+                </Grid>
             )}
-            {register === true && 
-                <div className='submitForm'>
-                    {/* submit text and a button for submit by calling setPersonOnClick */}
-                </div>
+
+
+
+
+
+
+
+            {/* submit text and a button for submit by calling setPersonOnClick */}
+            {register !== 2 && 
+                <Grid item xs={3} sm={3} md={3} component={Paper} elevation={6} square>
+                <Box
+                  sx={{
+                    my: 8,
+                    mx: 4,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    overflow: 'auto',
+                  }}
+                >
+                  <Avatar sx={{ mt: 1, bgcolor: 'error.main' }}>
+                    <NumbersIcon/>
+                  </Avatar>
+                  <Typography component="h1" variant="h5" sx={{mb: 4}}>
+                    請輸入座位號碼
+                  </Typography>
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="seat number"
+                    label="seat number"
+                    name="seat number"
+                    autoComplete="seat number"
+                    autoFocus
+                    // value={seatnumber}
+                    // onChange={accountChange}
+                    //這裡要寫hook
+                  />
+                  <Box component="form" noValidate sx={{ m: 3, width: "90%"}}>
+                      {register === 0 && <Button
+                          type="submit"
+                          margin="normal"
+                          fullWidth
+                          variant="contained"
+                          sx={{ mt: 3, mb: 2}}
+                          color="primary"
+                          style={{fontSize: '25px', color: 'white'}}
+                          onClick={setPersonOnClick}
+                      >
+                          租借
+                      </Button>
+                        }
+
+                      {register === 1 && <Button
+                          type="submit"
+                          margin="normal"
+                          fullWidth
+                          variant="contained"
+                          sx={{ mt: 3, mb: 2}}
+                          color="primary"
+                          style={{fontSize: '25px', color: 'white'}}
+                          onClick={setPersonOnClick}
+                      >
+                          歸還
+                      </Button>
+                        }
+                  </Box>
+                </Box>
+              </Grid>
             }
-            {register === false &&
-                <div className='confirmSeatID'>
-                    {/* two button for yes(endOnClick) or no(backToLoginOnClick) */}
-                </div>
+
+
+
+            {/* two button for yes(endOnClick) or no(backToLoginOnClick) */}
+            {register === 2 &&                
+                <Grid item xs={3} sm={3} md={3} component={Paper} elevation={6} square>
+                <Box
+                  sx={{
+                    my: 8,
+                    mx: 4,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    overflow: 'auto',
+                  }}
+                >
+                  <Avatar sx={{ mt: 1, bgcolor: 'error.main' }}>
+                    <NumbersIcon/>
+                  </Avatar>
+                  <Typography component="h1" variant="h5" sx={{mt: 2}}>
+                    綠色：可借座位
+                  </Typography>
+                  <Typography component="h1" variant="h5" sx={{mt: 1}}>
+                    灰色：不可借座位
+                  </Typography>
+                  <Typography component="h1" variant="h5" sx={{mt: 1}}>
+                    黃色：你已借座位
+                  </Typography>
+                  
+                  <Box component="form" noValidate sx={{ m: 3, mt: 6, width: "90%"}}>
+                    <Button
+                        type="submit"
+                        margin="normal"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2}}
+                        color="primary"
+                        style={{fontSize: '25px', color: 'white'}}
+                        onClick={setPersonOnClick}
+                    >
+                        回首頁
+                    </Button>
+                  </Box>
+                </Box>
+              </Grid>
             }
         </Grid>
     )

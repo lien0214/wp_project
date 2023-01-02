@@ -79,7 +79,8 @@ const Login = ({register, setPerson, setSelectState}) => {
         setPerson({account: account, password: password});
         setAccount('');
         setPassword('');
-        setSelectState(register === rent ? wheretosit : selecting);
+        // setSelectState(register === rent ? wheretosit : selecting);
+        setSelectState(wheretosit)
     }
 
     return(

@@ -35,17 +35,24 @@ const Select = ({register, endOnClick}) => {
             alignItems="center"
             justifyContent="center">
             {/* check folder select */}
-            {register !== search && selectState === login && <Login
+            {/* {register !== search && } */selectState === login && <Login
                 register={register}
                 setPerson={setPerson}
                 setSelectState={setSelectState}
             />}
-            {register === rent && selectState === wheretosit && <WhereToSit
+            {/* {register === rent && } */selectState === wheretosit && <WhereToSit 
                 person={person}
                 setPerson={setPerson}
                 setSelectState={setSelectState}
             />}
-            
+            {/* {register === search && <Selecting
+                register={register}
+                setPerson={setPerson}
+                person={person}
+                setSelectState={setSelectState}
+                endOnClick={endOnClick}
+            />
+            } */}
             {selectState === selecting && <Selecting
                 register={register}            
                 setPerson={setPerson}
