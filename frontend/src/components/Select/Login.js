@@ -63,6 +63,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
 const Login = ({register, setPerson, setSelectState}) => {
     const [account, setAccount] = useState('');
@@ -78,7 +79,7 @@ const Login = ({register, setPerson, setSelectState}) => {
         setPerson({account: account, password: password});
         setAccount('');
         setPassword('');
-        setSelectState(register ? wheretosit : selecting);
+        setSelectState(register === rent ? wheretosit : selecting);
     }
 
     return(

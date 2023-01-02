@@ -28,7 +28,7 @@ const Select = ({register, endOnClick}) => {
     // }, [state]);
 
 
-
+    console.log('selectState' + selectState);
     return (
         <Grid container component="main" sx={{ height: '80vh' }}
             direction="column"
