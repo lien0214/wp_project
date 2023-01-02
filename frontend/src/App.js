@@ -1,4 +1,4 @@
-import './App.css';
+
 import SeatSelect from './containers/SeatSelect'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';

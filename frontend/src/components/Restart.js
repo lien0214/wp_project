@@ -1,4 +1,4 @@
-import './Restart.css';
+
 import React, {useSate} from 'react';
 
 const Restart = ({backToHomeOnClick}) => {

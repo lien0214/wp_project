@@ -1,4 +1,3 @@
-import './Selecting.css';
 import seatHandling from '../../util/seatHandling';
 import Cell from './Cell';
 import Cover from './Cover';

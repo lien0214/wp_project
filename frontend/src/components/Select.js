@@ -1,4 +1,4 @@
-import './Select.css';
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Login from './Select/Login';
