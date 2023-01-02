@@ -8,6 +8,7 @@ import { palette } from '@mui/system';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ChairIcon from '@mui/icons-material/Chair';
 
+
 const theme = createTheme({
     palette: {
       primary: {
@@ -23,10 +24,10 @@ const Cell = ({cellInfo, coverOnClick }) => {
         <ThemeProvider theme={theme}>
         <CssBaseline />
             {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 7)) &&
-                <Box onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Box onClick={(cellInfo) => coverOnClick(cellInfo.person) }
                 sx={{
                     // position: 'absolute',
-                    bgcolor: '#9fa19f',
+                    bgcolor: '#72ed76',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -35,8 +36,10 @@ const Cell = ({cellInfo, coverOnClick }) => {
                     ml: 2,
                     mr: 1,
                     height: '10vh',
-                    width: '10vh' 
+                    width: '10vh',
+                    overflow: 'auto'
                 }}
+                
                 >
                     <ChairIcon />
                     {cellInfo.id}
@@ -46,7 +49,7 @@ const Cell = ({cellInfo, coverOnClick }) => {
                 <Box onClick={(cellInfo) => coverOnClick(cellInfo.person)}
                 sx={{
                     // position: 'absolute',
-                    bgcolor: '#9fa19f',
+                    bgcolor: '#72ed76',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -55,7 +58,8 @@ const Cell = ({cellInfo, coverOnClick }) => {
                     ml: 1,
                     mr: 2,
                     height: '10vh',
-                    width: '10vh' 
+                    width: '10vh',
+                    overflow: 'auto'
                 }}
                 >
                     <ChairIcon />
@@ -66,7 +70,7 @@ const Cell = ({cellInfo, coverOnClick }) => {
                 <Box onClick={(cellInfo) => coverOnClick(cellInfo.person)}
                 sx={{
                     // position: 'absolute',
-                    bgcolor: '#9fa19f',
+                    bgcolor: '#72ed76',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -75,7 +79,8 @@ const Cell = ({cellInfo, coverOnClick }) => {
                     ml: 1,
                     mr: 1,
                     height: '10vh',
-                    width: '10vh' 
+                    width: '10vh',
+                    overflow: 'auto'
                 }}
                 >
                     <ChairIcon />

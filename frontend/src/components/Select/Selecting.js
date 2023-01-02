@@ -51,7 +51,7 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
     console.log(seat);
 
     return (
-        <Grid container component="main" sx={{ height: '80vh' }}>
+        <Grid container component="main" sx={{ height: '80vh'}}>
             <CssBaseline />
             {/* {cover && <Cover
                 coverPerson={coverPerson}
@@ -60,20 +60,22 @@ const Selecting = ({ register, setPerson, person, setState, endOnClick }) => {
             {person.wheretosit === ShinGuan && (
                 <Grid item xs={9} sm={9} md={9} component={Paper} elevation={6} square>
                     <Box sx={{
-                        my: 4,
+                        my: 10,
                         mx: 4,
                         display: 'flex',
                         flexDirection: 'column',
-                        alignItems: 'center',
+                        alignItems: 'flex-start',
+                        overflow: 'auto',
                         }}>
                         {seat.map((row, r) => {
                             return( <Box id={'row' + r.toString()} key={'row' + r.toString()}
                                         sx={{
-                                            my: 2,
+                                            my: 1,
                                             mx: 2,
                                             alignItems: 'center',
                                             display: 'flex',
                                             flexDirection: 'row',
+                                            justifyContent:'center',
                                         }}>
                                 {row.map((cell, c) =>
                                     <Cell
