@@ -27,7 +27,7 @@ const QryEmpty = async (wheretosit, seatID) => {
       seatID, 
       ins
     });
-
+    console.log(message);
     return message;
   };
 
@@ -80,16 +80,16 @@ const AcntRegister = async (account, password) => {
   const LogCheck = async (account, password) => {
     const ins = 0; //
     const {
-      data: { message, valid },
+      data: { message, valid }
     } = await axios.get('/account', {
       params: {
         account, //
         password, //
         ins,
-      },
+      }
     });
-
+    console.log(message, valid);
     return { message, valid };
   };
 
-export default {QryEmpty, SeatReturn, SeatRent, QryPosition, AcntRegister, LogCheck}
+export {QryEmpty, SeatReturn, SeatRent, QryPosition, AcntRegister, LogCheck};

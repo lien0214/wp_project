@@ -62,6 +62,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import axios from '../../api'
 import {QryEmpty, SeatReturn, SeatRent, QryPosition, AcntRegister, LogCheck} from '../../util/ApiFunc'
 
 const rent = 0, ret = 1, search = 2;
@@ -69,6 +70,7 @@ const login = 0, wheretosit = 1, selecting = 2;
 const Login = ({register, setPerson, setSelectState}) => {
     const [account, setAccount] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const accountChange = (e) => {
         setAccount(e.target.value)
@@ -76,17 +78,24 @@ const Login = ({register, setPerson, setSelectState}) => {
     const passwordChange = (e) => {
         setPassword(e.target.value)
     }
-    const submitOnClick = () => {
+    const submitOnClick = async () => {
         setPerson({account: account, password: password});
+        const ret = await AcntRegister(account, password);
+        // const ret = {valid: true, message: ""};
         setAccount('');
         setPassword('');
-        // setSelectState(register === rent ? wheretosit : selecting);
-        setSelectState(wheretosit)
+        if(ret.valid === false) {
+            setErrorMessage(ret.message);
+        }
+        else {
+            // setSelectState(register === rent ? wheretosit : selecting);
+            setSelectState(wheretosit)
+        }
     }
 
     return(
         <ThemeProvider theme={createTheme()}>
-        
+        <button onClick={submitOnClick}></button>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square 
                 >
         <CssBaseline />

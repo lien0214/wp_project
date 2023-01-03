@@ -45,9 +45,9 @@ const seatHandling = (register, people, person) => {
     });
     
     // set return person seat
-    if(register === false) {
-        for(let r = 0, id = 1; r < rowSize && id <= size; r++) {
-            for(let c = 0; c < columnSize; c++, id++) {
+    if(register === false) {    //
+        for(let r = 0, id = 1; r < rowSize; r++) {
+            for(let c = 0; c < columnSize && id <= size; c++, id++) {
                 if(person.seatID === seat[r][c].id) {
                     seat[r][c].ifReturn = true;
                 }

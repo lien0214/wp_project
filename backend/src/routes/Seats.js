@@ -3,6 +3,7 @@ import SeatInfor from "../models/Seat";
 const router = Router();
 router.get("/account", async function (req, res) {
     const { account, password, ins } = req.query;
+    console.log(account, password, ins);
     if(ins == 0){
         const exist = await SeatInfor.findOne({ account, password });
         if (exist) {
@@ -29,6 +30,7 @@ router.get("/account", async function (req, res) {
     else {
       const exist = await SeatInfor.findOne({ account });
       if (exist) {
+        console.log(exist);
         res.json({
           message: "Your account has been registered!",
           valid: false
@@ -45,7 +47,7 @@ router.post("/infor", async function (req, res) {
         const { account, password, wheretosit, seatID, ins} = req.body;
         console.log(account, password, wheretosit, seatID, ins);
         if(seatID < 0){
-          if(ins === 0){
+          if(ins == 0){
             await SeatInfor.deleteOne({ account, password });
             res.json({
               message: "Your seat is returned successfully!"
@@ -69,7 +71,7 @@ router.post("/infor", async function (req, res) {
               });
             }
             else {
-              const exist = await SeatInfor.findOne({ seatID });
+              const exist = await SeatInfor.findOne({ wheretosit, seatID });
               if (exist) {
                 res.json({
                   message: "The seat is rent!",
