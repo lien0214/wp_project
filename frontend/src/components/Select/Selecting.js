@@ -1,4 +1,5 @@
 import seatHandling from '../../util/seatHandling';
+import {QryEmpty, SeatReturn, SeatRent, QryPosition, AcntRegister, LogCheck} from '../../util/ApiFunc'
 import Cell from './Cell';
 import Cover from './Cover';
 import React, { useState } from 'react';
@@ -13,18 +14,15 @@ import Button from '@material-ui/core/Button';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 
+const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
 const ShinGuan = 0, Lishin = 1;
 const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) => {
 
     const [cover, setCover] = useState(false);
     const [coverPerson, setCoverPerson] = useState({});
-    const [people, setpeople] = useState([]);
     //then get data from backend, maybe list of objects with accounts' information
 
-    const appendPerson = () => {
-        setpeople([...people, person]);
-    }
     const coverOnclick = (newCoverPerson) => {
         setCover(true);
         setCoverPerson(newCoverPerson);
@@ -37,7 +35,8 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         let newPerson = person;
         newPerson['seatID'] = seatID;
         setPerson(newPerson);
-        appendPerson();
+        if(register === rent) SeatRent(person.account, person.password);
+        else if(register === ret) SeatReturn(person.account, person.password);
         setSelectState(login);
         endOnClick();
     }
@@ -45,7 +44,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         setSelectState(login);
     }
 
-    const { rowSize, columnSize, size, seat } = seatHandling(register, people, person);
+    const { rowSize, columnSize, size, seat } = seatHandling(register, person);
     //const seat = [];
     /* seat is 2-D list of {
         id: id,

@@ -63,7 +63,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import axios from '../../api'
-import {QryEmpty, SeatReturn, SeatRent, QryPosition, AcntRegister, LogCheck} from '../../util/ApiFunc'
+import {AcntRegister, LogCheck} from '../../util/ApiFunc'
 
 const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
@@ -80,10 +80,10 @@ const Login = ({register, setPerson, setSelectState}) => {
     }
     const submitOnClick = async () => {
         setPerson({account: account, password: password});
-        const ret = await AcntRegister(account, password);
-        // const ret = {valid: true, message: ""};
-        setAccount('');
-        setPassword('');
+        let ret;
+        if(register === rent) ret = await AcntRegister(account, password);
+        else ret = await LogCheck(account, password);
+
         if(ret.valid === false) {
             setErrorMessage(ret.message);
         }
@@ -91,6 +91,8 @@ const Login = ({register, setPerson, setSelectState}) => {
             // setSelectState(register === rent ? wheretosit : selecting);
             setSelectState(wheretosit)
         }
+        setAccount('');
+        setPassword('');
     }
 
     return(
