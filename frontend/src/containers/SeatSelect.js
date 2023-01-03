@@ -47,6 +47,7 @@ const SeatSelect = () => {
             {(seatSelectState === select) && <Select
                 endOnClick={endOnClick}
                 register={register}
+                backToHomeOnClick={backToHomeOnClick}
             />}
             {/* {(seatSelectState === restart) && <Restart
                 backToHomeOnClick={backToHomeOnClick}

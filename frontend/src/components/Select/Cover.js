@@ -12,28 +12,39 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import EggIcon from '@mui/icons-material/Egg';
+import styled from 'styled-components'
+import "./Cover.css"
+import NumbersIcon from '@mui/icons-material/Numbers';
+// transform: translate(-50%, -10%);
 
-const Cover = () => {
+const Contaner = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`
+
+
+const Cover = ({backToHomeOnClick, register, coverSeatId}) => {
+
+    const setBackToHomeOnClick = () => {
+        backToHomeOnClick();
+    }
+    
+    console.log("test", coverSeatId)
+
     return (
-        <div style={{position: 'absolute', AlienItems: 'center'}}>
+        <div className='container'>
             <ThemeProvider theme={createTheme()}>
             <CssBaseline />
-            <Grid container component="main" sx={{ mt: '5vh', mb: '5vh', height: '70vh', width: '100%' }}>
-            <Grid
-            item
-            xs={false}
-            sm={4}
-            md={7}
-            sx={{
-                // backgroundImage: 'url(https://source.unsplash.com/random)',
-                backgroundImage: 'url(https://i.imgur.com/jNZbJ76.jpg)',
-                backgroundRepeat: 'no-repeat',
-                backgroundColor: (t) => t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-            />
-            <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
+            {/* <Grid container component="main" sx={{ mt: '5vh', mb: '5vh', height: '70vh', width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',}}> */}
+            <Grid item component={Paper} elevation={6} square sx={{ 
+                    height: '60vh', width: '100%',
+                    backgroundImage: 'url(https://i.imgur.com/UZHsb0M.png)'
+                    }}>
                 <Box
                     sx={{
                     my: 8,
@@ -44,12 +55,19 @@ const Cover = () => {
                     }}
                 >
                     
-                    <Avatar sx={{ m: 1, bgcolor: '#f0e935', height: "4vh", width: "4vh"}}>
-                        <EggIcon />
+                    <Avatar sx={{ m: 1, mb: 2, bgcolor: 'error.main', height: "4vh", width: "4vh"}}>
+                        <NumbersIcon />
                     </Avatar>
-                    <Typography component="h1" variant="h5" sx={{mb: 5}}>
+                    <Typography component="h1" variant="h5" sx={{mb: 1}}>
                     操作成功
                     </Typography>
+                    
+                    {register === 0 && <Typography component="h1" variant="h5" sx={{mb: 5}}>
+                    已租借座位
+                    </Typography>}
+                    {register === 1 && <Typography component="h1" variant="h5" sx={{mb: 5}}>
+                    已歸還座位
+                    </Typography>}
                     <Box sx={{ mt: 1 }}>
                     
                     <Button
@@ -59,6 +77,7 @@ const Cover = () => {
                         color='primary'
                         sx={{ mt: 3, mb: 2 }}
                         style={{fontSize: '25px', color: 'white'}}
+                        onClick={setBackToHomeOnClick}
                     >
                         回到首頁
                     </Button>
@@ -66,7 +85,7 @@ const Cover = () => {
                     </Box>
                 </Box>
             </Grid>
-            </Grid>
+            {/* </Grid> */}
             </ThemeProvider>
         </div>
     )

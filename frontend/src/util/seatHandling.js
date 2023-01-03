@@ -4,10 +4,10 @@ const rent = 0, ret = 1, search = 2;
 const seatHandling = (register, person) => {
     let seat = [];
     let columnSize, rowSize, size; // size for total count of seats including all kind of seats
-    if(person.wheretosit === Lishin) {
+    if(person.wheretosit === ShinGuan) {
         [columnSize, rowSize, size] = [20, 5, 96];
     }
-    else if(person.wheretosit === ShinGuan) {
+    else if(person.wheretosit === Lishin) {
         [columnSize, rowSize, size] = [8, 5, 40];
     }
     // create seat
@@ -56,6 +56,7 @@ const seatHandling = (register, person) => {
     // }
     if(register !== rent) {
         const seatid = QryPosition(person.account, person.password);
+        console.log(seatid);
         seat[seatid / columnSize][seatid % columnSize].ifReturn = true;
     }
     

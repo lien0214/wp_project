@@ -18,7 +18,8 @@ const theme = createTheme({
   });
 
 
-const Cell = ({where, cellInfo, coverOnClick }) => {
+
+const Cell = ({where, cellInfo, coverOnClick, cover}) => {
     const Qry = async () => {
         const ret = await QryEmpty(where, cellInfo.id);
         // const ret = true;
@@ -31,12 +32,15 @@ const Cell = ({where, cellInfo, coverOnClick }) => {
     // const clr = "#72ed76";
     // Qry();
 
+    console.log("test: ", cellInfo)
+
     return(
         <ThemeProvider theme={theme}>
         <CssBaseline />
-        { (where === 0) && <Grid>
+        {cellInfo.registered === false && 
+        (where === 1) && <Grid>
             {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 7)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person) }
+                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -109,7 +113,8 @@ const Cell = ({where, cellInfo, coverOnClick }) => {
         </Grid>
         }
 
-        { (where === 1) && <Grid>
+        {cellInfo.registered === false && 
+        (where === 0) && <Grid>
             {((cellInfo.c === 10)) && 
                 <Button onClick={(cellInfo) => coverOnClick(cellInfo.person) }
                 style={{maxWidth: '10vh',
@@ -185,6 +190,174 @@ const Cell = ({where, cellInfo, coverOnClick }) => {
             
         </Grid>
         }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {cellInfo.registered === true && 
+        (where === 1) && <Grid>
+            {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 7)) &&
+                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                style={{maxWidth: '10vh',
+                        maxHeight: '10vh',
+                        minWidth: '10vh',
+                        minHeight: '10vh',
+                        backgroundColor: "#6d6e6d",
+                        margin: '0.5vh',
+                        marginLeft: '2vh',
+                        borderRadius: '5%',
+                    }}
+                >
+                    <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'auto'
+                }}>
+                    <ChairIcon />
+                    {cellInfo.id}
+                    </Box>
+                </Button>
+            }
+            {((cellInfo.id % 8 === 2) || (cellInfo.id % 8 === 6) || (cellInfo.id % 8 === 0)) &&
+                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                style={{maxWidth: '10vh',
+                        maxHeight: '10vh',
+                        minWidth: '10vh',
+                        minHeight: '10vh',
+                        backgroundColor: "#6d6e6d",
+                        margin: '0.5vh',
+                        marginRight: '2vh',
+                        borderRadius: '5%',
+                    }}
+                >
+                    <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'auto'
+                }}>
+                    <ChairIcon />
+                    {cellInfo.id}
+                    </Box>
+                </Button>
+            }
+            {((cellInfo.id % 8 === 4) || (cellInfo.id % 8 === 5)) &&
+                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                style={{maxWidth: '10vh',
+                        maxHeight: '10vh',
+                        minWidth: '10vh',
+                        minHeight: '10vh',
+                        backgroundColor: "#6d6e6d",
+                        margin: '0.5vh',
+                        borderRadius: '5%',
+                    }}
+                >
+                    <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'auto'
+                }}>
+                    <ChairIcon />
+                    {cellInfo.id}
+                    </Box>
+                </Button>
+            }
+        </Grid>
+        }
+
+        {cellInfo.registered === true && 
+        (where === 0) && <Grid>
+            {((cellInfo.c === 10)) && 
+                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person) }
+                style={{maxWidth: '10vh',
+                        maxHeight: '10vh',
+                        minWidth: '10vh',
+                        minHeight: '10vh',
+                        backgroundColor: "#6d6e6d",
+                        margin: '0.5vh',
+                        marginLeft: '4vh',
+                        borderRadius: '5%',
+                    }}
+                >
+                    <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'auto'
+                }}>
+                    <ChairIcon />
+                    {cellInfo.id}
+                    </Box>
+                </Button>
+            }
+            {(((cellInfo.c === 9 || cellInfo.c === 19)) ||
+            (cellInfo.c === 15 && cellInfo.r === 4)) &&
+                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                style={{maxWidth: '10vh',
+                        maxHeight: '10vh',
+                        minWidth: '10vh',
+                        minHeight: '10vh',
+                        backgroundColor: "#6d6e6d",
+                        margin: '0.5vh',
+                        marginRight: '4vh',
+                        borderRadius: '5%',
+                    }}
+                >
+                    <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'auto'
+                }}>
+                    <ChairIcon />
+                    {cellInfo.id}
+                    </Box>
+                </Button>
+            }
+            {((cellInfo.c % 20 !== 10) && (cellInfo.c % 10 !== 9)) && (cellInfo.id != 96) &&
+                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                style={{maxWidth: '10vh',
+                        maxHeight: '10vh',
+                        minWidth: '10vh',
+                        minHeight: '10vh',
+                        backgroundColor: "#6d6e6d",
+                        margin: '0.5vh',
+                        borderRadius: '5%',
+                    }}
+                >
+                    <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'auto'
+                }}>
+                    <ChairIcon />
+                    {cellInfo.id}
+                    </Box>
+                </Button>
+            }
+            
+        </Grid>
+        }
+
         </ThemeProvider>
     )
 }

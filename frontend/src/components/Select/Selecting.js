@@ -8,27 +8,30 @@ import Grid from '@mui/material/Grid';
 import CssBaseline from '@mui/material/CssBaseline';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
-import NumbersIcon from '@mui/icons-material/Numbers';
 import Typography from '@mui/material/Typography';
 import Button from '@material-ui/core/Button';
+import NumbersIcon from '@mui/icons-material/Numbers';
 import TextField from '@mui/material/TextField';
 
 const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
 const ShinGuan = 0, Lishin = 1;
-const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) => {
+const Selecting = ({ register, setPerson, person, setSelectState, endOnClick, backToHomeOnClick, cover, setCover}) => {
 
-    const [cover, setCover] = useState(false);
+    
     const [coverPerson, setCoverPerson] = useState({});
     const [seatid, setSeatid] = useState(0);
+    
     //then get data from backend, maybe list of objects with accounts' information
     
     const seatidOnchange = (newSeatid) => {
         setSeatid(newSeatid);
     }
     const coverOnclick = (newCoverPerson) => {
+
         setCover(true);
         setCoverPerson(newCoverPerson);
+        setPersonOnClick();
     }
     const noCoverOnClick = () => {
         setCover(false);
@@ -49,6 +52,8 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         setSelectState(login);
     }
 
+    // ret = await AcntRegister(account, password);
+
     const { rowSize, columnSize, size, seat } = seatHandling(register, person);
     //const seat = [];
     /* seat is 2-D list of {
@@ -60,17 +65,21 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
     }*/
 
     return (
-        <Grid container component="main" sx={{ height: '80vh'}}>
+        <Grid container component="main" sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            position: 'relative',
+            alignItems: 'center',
+            overflow: 'auto',
+            }}>
+        
             <CssBaseline />
-            {/* {cover && <Cover
-                coverPerson={coverPerson}
-                noCoverOnClick={noCoverOnClick}
-            />} */}
+
             {person.wheretosit === ShinGuan && (
-                <Grid className='ShinGuan' item xs={9} sm={9} md={9} component={Paper} elevation={6} square>
+                <Grid className='ShinGuan' item xs={9} sm={9} md={9}>
                     <Box sx={{
-                        my: 10,
-                        mx: 4,
+                        // my: 10,
+                        // mx: 4,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'flex-start',
@@ -103,10 +112,10 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                 </Grid>
             )}
             {person.wheretosit === Lishin && (
-                <Grid className='LiShin' item xs={9} sm={9} md={9} component={Paper} elevation={6} square>
+                <Grid className='LiShin' item xs={9} sm={9} md={9}>
                     <Box sx={{
-                        my: 8,
-                        mx: 4,
+                        // my: 8,
+                        // mx: 4,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'flex-start',
@@ -145,7 +154,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
 
 
             {/* submit text and a button for submit by calling setPersonOnClick */}
-            {register !== 2 && 
+            {/* {register !== 2 && 
                 <Grid item xs={3} sm={3} md={3} component={Paper} elevation={6} square>
                 <Box
                   sx={{
@@ -211,7 +220,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
 
 
 
-            {/* two button for yes(endOnClick) or no(backToLoginOnClick) */}
+            //  two button for yes(endOnClick) or no(backToLoginOnClick) 
             {register === 2 &&                
                 <Grid item xs={3} sm={3} md={3} component={Paper} elevation={6} square>
                 <Box
@@ -253,10 +262,10 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                   </Box>
                 </Box>
               </Grid>
-            }
+            } */}
+            {cover && <Cover backToHomeOnClick={backToHomeOnClick} register={register}/>}
         </Grid>
     )
-
 }
 export default Selecting;
 

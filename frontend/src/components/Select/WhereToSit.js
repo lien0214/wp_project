@@ -93,7 +93,7 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
           item
           xs={false}
           sm={4}
-          md={7}
+          md={8}
           sx={{
             // backgroundImage: 'url(https://source.unsplash.com/random)',
             backgroundImage: 'url(https://i.imgur.com/5oobnjj.jpg)',
@@ -101,26 +101,32 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
             backgroundColor: (t) => t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
+        <Grid item xs={12} sm={8} md={4} elevation={6} square sx={{
+              backgroundColor: 'transparent',
+        }}>
+          <Box component={Paper}
             sx={{
               my: 8,
-              mx: 4,
+              mx: 6,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              // backgroundImage: 'url(https://i.imgur.com/QivTRmO.png)',
+              // backgroundColor: 'white',
+              backgroundColor: 'transparent',
             }}
             justifyContent="center"
           >
-            <Avatar sx={{ mt: 1, bgcolor: 'error.main' }}>
+            <Avatar sx={{ mt: 5, bgcolor: 'error.main' }}>
               <ThumbUpIcon />
             </Avatar>
             <Typography component="h1" variant="h5" sx={{mb: 4}}>
               請選擇地點
             </Typography>
-            <Box sx={{ m: 3, width: "90%"}}>
+            <Box sx={{ m: 3, width: "60%"}}>
                 <Button
                     type="submit"
                     fullWidth
@@ -134,7 +140,7 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
                     裡新
                 </Button>
             </Box>
-            <Box sx={{ m: 3, width: "90%"}}>
+            <Box sx={{ m: 3, width: "60%"}}>
                 <Button
                     type="submit"
                     margin="normal"
@@ -148,7 +154,9 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
                     新館
                 </Button>
             </Box>
-            
+            <Box sx={{ m: 3, width: "60%"}}></Box>
+            <Box sx={{ m: 3, width: "60%"}}></Box>
+            <Box sx={{ m: 3, width: "60%"}}></Box>
           </Box>
         </Grid>
       </Grid>

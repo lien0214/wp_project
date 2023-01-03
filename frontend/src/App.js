@@ -8,23 +8,29 @@ import ChairIcon from '@mui/icons-material/Chair';
 import Avatar from '@mui/material/Avatar';
 import EggIcon from '@mui/icons-material/Egg';
 import Link from '@mui/material/Link';
+import styled from 'styled-components'
 
 const theme = createTheme();
 
+const Container = styled.div`
+  background-image: url('https://i.imgur.com/5NUUrFE.png');
+`
+
 function App() {
   return (
-    <div className="App">
+    <Container className="App">
       <CssBaseline />
       <Grid container component="main" item
             xs={false}
             sx={{height: "10vh",
-            backgroundColor: (t) => t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            opacity: "80%",
             }}
           >
         <Box sx={{my: 1, mx: 2,
                   display: 'flex',
                   flexDirection: 'row',
-                  alignItems: 'center',}}
+                  alignItems: 'center',
+                  opacity: "100%",}}
             style={{fontSize: '4vh', color: 'black'}}
               >CSIE
               <Avatar sx={{ m: 2, ml: 1, bgcolor: '#e79fc3', height: "4vh", width: "4vh"}}>
@@ -38,13 +44,14 @@ function App() {
       <Grid container component="main" item
             xs={false}
             sx={{height: "10vh",
-            backgroundColor: (t) => t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             flexDirection: 'row-reverse',
+            opacity: "80%",
             }}
           >
-        <Box sx={{my: 1, mx: 2,
+        <Box sx={{my: 2, mx: 2,
                   display: 'flex',
-                  alignItems: 'center',}}
+                  alignItems: 'center',
+                  opacity: "100%",}}
             style={{fontSize: '2vh', color: 'black'}}
               >
               <Avatar sx={{ m: 2, mr: 1, bgcolor: '#f0e935', height: "4vh", width: "4vh"}}>
@@ -56,7 +63,7 @@ function App() {
         </Box>
         
       </Grid>
-    </div>
+    </Container>
   );
 }
 
