@@ -11,7 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import NumbersIcon from '@mui/icons-material/Numbers';
 import Typography from '@mui/material/Typography';
 import Button from '@material-ui/core/Button';
-import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 
 const rent = 0, ret = 1, search = 2;
@@ -39,8 +38,6 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         let newPerson = person;
         newPerson['seatID'] = seatid;
         setPerson(newPerson);
-        console.log(seatid);
-        console.log(person);
         if(register === rent) await SeatRent(person.account, person.password, wheretosit, seatid);
         else if(register === ret) await SeatReturn(person.account, person.password);
         
