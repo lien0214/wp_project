@@ -61,7 +61,7 @@ const QryEmpty = async (wheretosit, seatID) => {
     return {message, whr, pos};
   };
 
-//GET 
+  // call func when rent
 const AcntRegister = async (account, password) => {
     const ins = 1; //
     const {
@@ -76,7 +76,7 @@ const AcntRegister = async (account, password) => {
 
     return { message, valid };
   };
-
+// call func when return or search
   const LogCheck = async (account, password) => {
     const ins = 0; //
     const {
