@@ -43,7 +43,7 @@ router.get("/account", async function (req, res) {
 router.post("/infor", async function (req, res) {
     try {
         const { account, password, wheretosit, seatID, ins} = req.body;
-        // console.log(account, password, wheretosit, seatID, ins);
+        console.log(account, password, wheretosit, seatID, ins);
         if(seatID < 0){
           if(ins === 0){
             await SeatInfor.deleteOne({ account, password });
@@ -54,7 +54,7 @@ router.post("/infor", async function (req, res) {
           else {
             const infor = await SeatInfor.findOne({ account, password });
             res.json({
-              message: `Seat found at position ${infor.wheretosit}, ${infor.seatID}.`,
+              message: "Seat found!",
               whr: infor.wheretosit, 
               pos: infor.seatID
             });
@@ -69,7 +69,7 @@ router.post("/infor", async function (req, res) {
               });
             }
             else {
-              const exist = await SeatInfor.findOne({ position });
+              const exist = await SeatInfor.findOne({ seatID });
               if (exist) {
                 res.json({
                   message: "The seat is rent!",
