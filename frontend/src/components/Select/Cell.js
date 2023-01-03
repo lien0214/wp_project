@@ -20,8 +20,8 @@ const theme = createTheme({
 
 const Cell = ({where, cellInfo, coverOnClick }) => {
     const Qry = async () => {
-        // const ret = await QryEmpty(where, cellInfo.id);
-        const ret = true;
+        const ret = await QryEmpty(where, cellInfo.id);
+        // const ret = true;
         console.log(ret, cellInfo.id);
         if(ret < 0)
             return false;
@@ -29,6 +29,7 @@ const Cell = ({where, cellInfo, coverOnClick }) => {
     }
     // const clr = QryPos();
     // const clr = "#72ed76";
+    // Qry();
 
     return(
         <ThemeProvider theme={theme}>

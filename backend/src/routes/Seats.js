@@ -75,6 +75,7 @@ router.post("/infor", async function (req, res) {
               if (exist) {
                 res.json({
                   message: "The seat is rent!",
+                  whr: exist, 
                   pos: 1
                 });
               }

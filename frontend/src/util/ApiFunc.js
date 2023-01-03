@@ -12,8 +12,8 @@ const QryEmpty = async (wheretosit, seatID) => {
       seatID, //
       ins
     });
-
-    return pos;
+    console.log(whr);
+    return {whr, pos}; // whr => person's infor if rent, pos => 1 for rent and -1 for empty;
   };
 
   const SeatReturn = async (account, password) => {
