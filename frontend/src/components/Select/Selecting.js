@@ -22,6 +22,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
     const [cover, setCover] = useState(false);
     const [coverPerson, setCoverPerson] = useState({});
     //then get data from backend, maybe list of objects with accounts' information
+    
 
     const coverOnclick = (newCoverPerson) => {
         setCover(true);
@@ -38,7 +39,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         if(register === rent) SeatRent(person.account, person.password);
         else if(register === ret) SeatReturn(person.account, person.password);
         setSelectState(login);
-        endOnClick();
+        //endOnClick();
     }
     const backToLoginOnClick = () => {
         setSelectState(login);

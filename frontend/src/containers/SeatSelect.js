@@ -28,7 +28,7 @@ const SeatSelect = () => {
     }
     // func to change seatSelectState in select
     const endOnClick = () => {
-        setSeatSelectState(restart);
+        setSeatSelectState(homepage);
     }
     // func to change seatSelectState in restart
     const backToHomeOnClick = () => {
@@ -49,9 +49,9 @@ const SeatSelect = () => {
                 endOnClick={endOnClick}
                 register={register}
             />}
-            {(seatSelectState === restart) && <Restart
+            {/* {(seatSelectState === restart) && <Restart
                 backToHomeOnClick={backToHomeOnClick}
-            />}
+            />} */}
         </Box>
     )
 

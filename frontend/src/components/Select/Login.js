@@ -97,10 +97,11 @@ const Login = ({register, setPerson, setSelectState}) => {
 
     return(
         <ThemeProvider theme={createTheme()}>
-        <button onClick={submitOnClick}></button>
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square 
-                >
+            {/* <button onClick={submitOnClick}></button> */}
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
+        
         <CssBaseline />
+        
             <Box
                 sx={{
                 my: 8,
@@ -110,13 +111,15 @@ const Login = ({register, setPerson, setSelectState}) => {
                 alignItems: 'center',
                 }}
             >
+                
                 <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
                 Sign In
                 </Typography>
-                <Box component="form" noValidate sx={{ mt: 1 }}>
+                <Box sx={{ mt: 1 }}>
+                
                 <TextField
                     margin="normal"
                     required
@@ -160,6 +163,19 @@ const Login = ({register, setPerson, setSelectState}) => {
                 >
                     Sign In
                 </Button>
+                {/* <button className='BTN' onClick={submitOnClick} style={{
+                        backgroundColor: '#008CBA',
+                        border: 'none',
+                        color: 'white',
+                        // padding: '15px 32px',
+                        display: 'flex',
+                        textAlign: 'center',
+                        textDecoration: 'none',
+                        display: 'inline-block',
+                        fontSize: '20px',
+                        }}>
+                    Sign In
+                </button> */}
                 <Grid container sx={{ mt: 3, mb: 2 }}>
                     <Grid item xs>
                     <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" variant="body2"
