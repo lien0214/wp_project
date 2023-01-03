@@ -21,9 +21,12 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
 
     const [cover, setCover] = useState(false);
     const [coverPerson, setCoverPerson] = useState({});
+    const [seatid, setSeatid] = useState(0);
     //then get data from backend, maybe list of objects with accounts' information
     
-
+    const seatidOnchange = (newSeatid) => {
+        setSeatid(newSeatid);
+    }
     const coverOnclick = (newCoverPerson) => {
         setCover(true);
         setCoverPerson(newCoverPerson);
@@ -32,15 +35,17 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         setCover(false);
         setCoverPerson({});
     }
-    const setPersonOnClick = async (seatID) => {
+    const setPersonOnClick = async () => {
         let newPerson = person;
-        newPerson['seatID'] = seatID;
+        newPerson['seatID'] = seatid;
         setPerson(newPerson);
-        console.log(person.account, person.password, wheretosit, seatID);
-        if(register === rent) await SeatRent(person.account, person.password, wheretosit, seatID);
+        console.log(seatid);
+        console.log(person);
+        if(register === rent) await SeatRent(person.account, person.password, wheretosit, seatid);
         else if(register === ret) await SeatReturn(person.account, person.password);
-        setSelectState(login);
-        //endOnClick();
+        
+        // setSelectState(login);
+        // endOnClick();
     }
     const backToLoginOnClick = () => {
         setSelectState(login);
@@ -55,7 +60,6 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         person: {},
         ifReturn: false
     }*/
-    console.log(seat);
 
     return (
         <Grid container component="main" sx={{ height: '80vh'}}>
@@ -170,8 +174,8 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                     name="seat number"
                     autoComplete="seat number"
                     autoFocus
-                    // value={seatnumber}
-                    // onChange={accountChange}
+                    value={seatid}
+                    onChange={(e) => seatidOnchange(e.target.value)}
                     //這裡要寫hook
                   />
                   <Box sx={{ m: 3, width: "90%"}}>
@@ -244,7 +248,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                         sx={{ mt: 3, mb: 2}}
                         color="primary"
                         style={{fontSize: '25px', color: 'white'}}
-                        onClick={setPersonOnClick}
+                        onClick={endOnClick}
                     >
                         回首頁
                     </Button>

@@ -12,23 +12,7 @@ const ShinGuan = 0, Lishin = 1;
 const Select = ({register, endOnClick}) => {
     const [selectState, setSelectState] = useState(login);
     const [person, setPerson] = useState({});
-    // const navigate = useNavigate();
-    // useEffect(() => {
-    //     switch(state) {
-    //         case login:
-    //             navigate('/Login');
-    //             break;
-    //         case wheretosit:
-    //             navigate('/WhereToSit');
-    //             break;
-    //         case selecting:
-    //             navigate('/Selecting');
-    //             break;
-    //     }
-    // }, [state]);
 
-
-    console.log('selectState' + selectState);
     return (
         <Grid container component="main" sx={{ height: '80vh' }}
             direction="column"
