@@ -8,7 +8,7 @@
 //     const LiShinOnClick = () => {
 //         // console.log("LiShinOnClick")
 //         setPerson({
-//             acount: person.account,
+//             account: person.account,
 //             password: person.password,
 //             wheretosit: Lishin
 //         });
@@ -18,7 +18,7 @@
 //     const ShinGuanOnClick = () => {
 //         // console.log("ShinGuanOnClick")
 //         setPerson({
-//             acount: person.account,
+//             account: person.account,
 //             password: person.password,
 //             wheretosit: ShinGuan
 //         });
@@ -69,7 +69,7 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
     const LiShinOnClick = () => {
         // console.log("LiShinOnClick")
         setPerson({
-            acount: person.account,
+            account: person.account,
             password: person.password,
             wheretosit: Lishin
         });
@@ -78,7 +78,7 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
     }
     const ShinGuanOnClick = () => {
         setPerson({
-            acount: person.account,
+            account: person.account,
             password: person.password,
             wheretosit: ShinGuan
         });
