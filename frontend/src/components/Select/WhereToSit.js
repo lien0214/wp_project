@@ -120,7 +120,7 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
             <Typography component="h1" variant="h5" sx={{mb: 4}}>
               請選擇地點
             </Typography>
-            <Box component="form" noValidate sx={{ m: 3, width: "90%"}}>
+            <Box sx={{ m: 3, width: "90%"}}>
                 <Button
                     type="submit"
                     fullWidth
@@ -134,7 +134,7 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
                     裡新
                 </Button>
             </Box>
-            <Box component="form" noValidate sx={{ m: 3, width: "90%"}}>
+            <Box sx={{ m: 3, width: "90%"}}>
                 <Button
                     type="submit"
                     margin="normal"

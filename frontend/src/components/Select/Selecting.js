@@ -173,7 +173,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                     // onChange={accountChange}
                     //這裡要寫hook
                   />
-                  <Box component="form" noValidate sx={{ m: 3, width: "90%"}}>
+                  <Box sx={{ m: 3, width: "90%"}}>
                       {register === 0 && <Button
                           type="submit"
                           margin="normal"
@@ -234,7 +234,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
                     黃色：你已借座位
                   </Typography>
                   
-                  <Box component="form" noValidate sx={{ m: 3, mt: 6, width: "90%"}}>
+                  <Box sx={{ m: 3, mt: 6, width: "90%"}}>
                     <Button
                         type="submit"
                         margin="normal"
