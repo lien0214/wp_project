@@ -32,12 +32,13 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick }) 
         setCover(false);
         setCoverPerson({});
     }
-    const setPersonOnClick = (seatID) => {
+    const setPersonOnClick = async (seatID) => {
         let newPerson = person;
         newPerson['seatID'] = seatID;
         setPerson(newPerson);
-        if(register === rent) SeatRent(person.account, person.password);
-        else if(register === ret) SeatReturn(person.account, person.password);
+        console.log(person.account, person.password, wheretosit, seatID);
+        if(register === rent) await SeatRent(person.account, person.password, wheretosit, seatID);
+        else if(register === ret) await SeatReturn(person.account, person.password);
         setSelectState(login);
         //endOnClick();
     }

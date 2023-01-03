@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import { palette } from '@mui/system';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ChairIcon from '@mui/icons-material/Chair';
-
+import {QryEmpty} from '../../util/ApiFunc'
 
 const theme = createTheme({
     palette: {
@@ -18,8 +18,18 @@ const theme = createTheme({
   });
 
 
-
 const Cell = ({where, cellInfo, coverOnClick }) => {
+    const Qry = async () => {
+        // const ret = await QryEmpty(where, cellInfo.id);
+        const ret = true;
+        console.log(ret, cellInfo.id);
+        if(ret < 0)
+            return false;
+        else return true;
+    }
+    // const clr = QryPos();
+    // const clr = "#72ed76";
+
     return(
         <ThemeProvider theme={theme}>
         <CssBaseline />
