@@ -73,7 +73,7 @@ export default function Homepage({startRentOnClick, startReturnOnClick, startSea
           item
           xs={false}
           sm={4}
-          md={7}
+          md={8}
           sx={{
             // backgroundImage: 'url(https://source.unsplash.com/random)',
             backgroundImage: 'url(https://i.imgur.com/nrBA0OV.jpg)',
@@ -83,23 +83,26 @@ export default function Homepage({startRentOnClick, startReturnOnClick, startSea
             backgroundPosition: 'center',
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
+        <Grid item xs={12} sm={8} md={4} elevation={6} square sx={{
+              backgroundColor: 'transparent',
+        }}>
+          <Box component={Paper} 
             sx={{
-              my: 8,
+              my: 4,
               mx: 4,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              backgroundColor: 'transparent',
             }}
           >
-            <Avatar sx={{ mt: 1, bgcolor: 'error.main' }}>
+            <Avatar sx={{ mt: 4, bgcolor: 'error.main' }}>
               <ThumbUpIcon />
             </Avatar>
             <Typography component="h1" variant="h5" sx={{mb: 4}}>
               請選擇想要的操作
             </Typography>
-            <Box sx={{ m: 3, width: "90%"}}>
+            <Box sx={{ m: 3, width: "60%"}}>
                 <Button
                     type="submit"
                     fullWidth
@@ -113,7 +116,7 @@ export default function Homepage({startRentOnClick, startReturnOnClick, startSea
                     租借座位
                 </Button>
             </Box>
-            <Box sx={{ m: 3, width: "90%"}}>
+            <Box sx={{ m: 3, width: "60%"}}>
                 <Button
                     type="submit"
                     margin="normal"
@@ -127,7 +130,7 @@ export default function Homepage({startRentOnClick, startReturnOnClick, startSea
                     歸還座位
                 </Button>
             </Box>
-            <Box sx={{ m: 3, width: "90%"}}>
+            <Box sx={{ m: 3, width: "60%"}}>
                 <Button
                     type="submit"
                     margin="normal"
@@ -141,6 +144,8 @@ export default function Homepage({startRentOnClick, startReturnOnClick, startSea
                     查詢座位
                 </Button>
             </Box>
+            <Box sx={{ m: 6, width: "90%"}}></Box>
+            
           </Box>
         </Grid>
       </Grid>

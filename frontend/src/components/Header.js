@@ -36,7 +36,7 @@ const Header = () =>{
               </Avatar>
         </Box>
         
-        <Box component={Paper} style={{fontSize: '2vh', color: 'black'}} sx={{
+        {/* <Box component={Paper} style={{fontSize: '2vh', color: 'black'}} sx={{
                   my: 1, mx: 2,
                   width: '20vh',
                   display: 'flex',
@@ -52,8 +52,8 @@ const Header = () =>{
                   color: 'black'}}>
                     關於台大資工
             </Link>
-        </Box>
-        <Box component={Paper} style={{fontSize: '2vh', color: 'black'}} sx={{
+        </Box> */}
+        {/* <Box component={Paper} style={{fontSize: '2vh', color: 'black'}} sx={{
                   width: '20vh',
                   my: 1, mx: 2,
                   display: 'flex',
@@ -69,7 +69,7 @@ const Header = () =>{
                   color: 'black'}}>
                     回到首頁
             </Link>
-        </Box>
+        </Box> */}
       </Grid>
     )
 
