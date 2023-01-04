@@ -63,7 +63,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import axios from '../../api'
-import {AcntRegister, LogCheck} from '../../util/ApiFunc'
+import {AcntRegister, LogCheck, GetAll} from '../../util/ApiFunc'
 
 const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
@@ -80,6 +80,8 @@ const Login = ({register, setPerson, setSelectState}) => {
     }
     const submitOnClick = async () => {
         setPerson({account: account, password: password});
+        // const infor = await GetAll();
+        // console.log(infor);
         let ret;
         if(register === rent) ret = await AcntRegister(account, password);
         else ret = await LogCheck(account, password);

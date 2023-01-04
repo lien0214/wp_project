@@ -53,12 +53,19 @@ router.post("/infor", async function (req, res) {
               message: "Your seat is returned successfully!"
             });
           }
-          else {
+          else if(ins == 1){
             const infor = await SeatInfor.findOne({ account, password });
             res.json({
               message: "Seat found!",
               whr: infor.wheretosit, 
               pos: infor.seatID
+            });
+          }
+          else {
+            console.log("QQQ");
+            const infor = await SeatInfor.find({ });
+            res.json({
+              whr: infor, 
             });
           }
         }
