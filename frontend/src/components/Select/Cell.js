@@ -2,12 +2,9 @@ import React from "react";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CssBaseline from '@mui/material/CssBaseline';
-import Paper from '@mui/material/Paper';
 import Button from '@material-ui/core/Button';
-import { palette } from '@mui/system';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ChairIcon from '@mui/icons-material/Chair';
-import {QryEmpty} from '../../util/ApiFunc'
 
 const theme = createTheme({
     palette: {
@@ -34,9 +31,9 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
     return(
         <ThemeProvider theme={theme}>
         <CssBaseline />
-        {cellInfo.registered === false && 
+        {cellInfo.ifPersonSeat === false && 
         (where === 1) && <Grid>
-            {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 7)) &&
+            {((cellInfo.id % 8 === 0) || (cellInfo.id % 8 === 2) || (cellInfo.id % 8 === 6)) &&
                 <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
@@ -47,6 +44,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginLeft: '2vh',
                         borderRadius: '5%',
                     }}
+                disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -60,7 +58,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                     </Box>
                 </Button>
             }
-            {((cellInfo.id % 8 === 2) || (cellInfo.id % 8 === 6) || (cellInfo.id % 8 === 0)) &&
+            {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 5) || (cellInfo.id % 8 === 7)) &&
                 <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
@@ -71,6 +69,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginRight: '2vh',
                         borderRadius: '5%',
                     }}
+                disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -84,7 +83,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                     </Box>
                 </Button>
             }
-            {((cellInfo.id % 8 === 4) || (cellInfo.id % 8 === 5)) &&
+            {((cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 4)) &&
                 <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
@@ -94,6 +93,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         margin: '0.5vh',
                         borderRadius: '5%',
                     }}
+                disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -110,7 +110,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
         </Grid>
         }
 
-        {cellInfo.registered === false && 
+        {cellInfo.ifPersonSeat === false && 
         (where === 0) && <Grid>
             {((cellInfo.c === 10)) && 
                 <Button onClick={() => buttonOnClick(cellInfo) }
@@ -123,6 +123,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginLeft: '4vh',
                         borderRadius: '5%',
                     }}
+                disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -148,6 +149,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginRight: '4vh',
                         borderRadius: '5%',
                     }}
+                disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -161,7 +163,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                     </Box>
                 </Button>
             }
-            {((cellInfo.c % 20 !== 10) && (cellInfo.c % 10 !== 9)) && (cellInfo.id != 96) &&
+            {((cellInfo.c % 20 !== 10) && (cellInfo.c % 10 !== 9)) && (cellInfo.id != 95) &&
                 <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
@@ -171,6 +173,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         margin: '0.5vh',
                         borderRadius: '5%',
                     }}
+                disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -201,9 +204,9 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
 
 
 
-        {cellInfo.registered === true && 
+        {cellInfo.ifPersonSeat === true && 
         (where === 1) && <Grid>
-            {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 7)) &&
+            {((cellInfo.id % 8 === 0) || (cellInfo.id % 8 === 2) || (cellInfo.id % 8 === 6)) &&
                 <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
@@ -214,6 +217,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginLeft: '2vh',
                         borderRadius: '5%',
                     }}
+                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -227,7 +231,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                     </Box>
                 </Button>
             }
-            {((cellInfo.id % 8 === 2) || (cellInfo.id % 8 === 6) || (cellInfo.id % 8 === 0)) &&
+            {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 5) || (cellInfo.id % 8 === 7)) &&
                 <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
@@ -238,6 +242,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginRight: '2vh',
                         borderRadius: '5%',
                     }}
+                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -261,6 +266,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         margin: '0.5vh',
                         borderRadius: '5%',
                     }}
+                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -277,7 +283,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
         </Grid>
         }
 
-        {cellInfo.registered === true && 
+        {cellInfo.ifPersonSeat === true && 
         (where === 0) && <Grid>
             {((cellInfo.c === 10)) && 
                 <Button onClick={() => buttonOnClick(cellInfo) }
@@ -290,6 +296,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginLeft: '4vh',
                         borderRadius: '5%',
                     }}
+                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -315,6 +322,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginRight: '4vh',
                         borderRadius: '5%',
                     }}
+                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -328,7 +336,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                     </Box>
                 </Button>
             }
-            {((cellInfo.c % 20 !== 10) && (cellInfo.c % 10 !== 9)) && (cellInfo.id != 96) &&
+            {((cellInfo.c % 20 !== 10) && (cellInfo.c % 10 !== 9)) && (cellInfo.id != 95) &&
                 <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
@@ -338,6 +346,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         margin: '0.5vh',
                         borderRadius: '5%',
                     }}
+                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',

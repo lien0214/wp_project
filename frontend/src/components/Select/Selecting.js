@@ -6,6 +6,9 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CssBaseline from '@mui/material/CssBaseline';
+import ReplyIcon from '@mui/icons-material/Reply';
+import Button from '@material-ui/core/Button';
+import { Avatar } from '@mui/material';
 
 const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
@@ -128,6 +131,23 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick, ba
                 </Box>
                 </Grid>
             )}
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                position: 'absolute',
+                left: '85%',
+                top: '-5%',
+                m: 3
+            }}>
+                <Button 
+                onClick={backToHomeOnClick}
+                >
+                    <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+                        <ReplyIcon/>
+                    </Avatar>
+                </Button>
+            </Box>
             {cover && <Cover backToHomeOnClick={backToHomeOnClick} register={register}/>}
         </Grid>
     )

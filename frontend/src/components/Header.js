@@ -4,11 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ChairIcon from '@mui/icons-material/Chair';
 import Avatar from '@mui/material/Avatar';
-import EggIcon from '@mui/icons-material/Egg';
-import Link from '@mui/material/Link';
-import styled from 'styled-components'
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
+
 
 
 const Header = () =>{
@@ -24,6 +20,7 @@ const Header = () =>{
             flexDirection: 'row',
             }}
           >
+        <CssBaseline/>
         <Box sx={{my: 1, mx: 2,
                   display: 'flex',
                   flexDirection: 'row',

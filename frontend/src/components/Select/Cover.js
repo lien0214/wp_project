@@ -41,7 +41,7 @@ const Cover = ({backToHomeOnClick, register, coverSeatId}) => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',}}> */}
-            <Grid item component={Paper} elevation={6} square sx={{ 
+            <Grid item component={Paper} elevation={6} sx={{ 
                     height: '60vh', width: '100%',
                     backgroundImage: 'url(https://i.imgur.com/UZHsb0M.png)'
                     }}>

@@ -60,7 +60,7 @@ const WhereToSit = ({person, setPerson, setSelectState}) => {
             
           }}
         />
-        <Grid item xs={12} sm={8} md={4} elevation={6} square sx={{
+        <Grid item xs={12} sm={8} md={4} elevation={6} sx={{
               backgroundColor: 'transparent',
         }}>
           <Box component={Paper}

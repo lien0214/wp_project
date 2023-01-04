@@ -43,6 +43,8 @@ const Login = ({register, person, setPerson, setSelectState, forgetOnClick, setS
         SeatLiShin = seatHandling(register, people, person, Lishin);  
         SeatShinGuan = seatHandling(register, people, person, ShinGuan);
 
+        console.log(SeatLiShin);
+
         setSeatLiShin(SeatLiShin);
         setSeatShinGuan(SeatShinGuan);
         
@@ -55,7 +57,7 @@ const Login = ({register, person, setPerson, setSelectState, forgetOnClick, setS
     return(
         <ThemeProvider theme={createTheme()}>
             {/* <button onClick={submitOnClick}></button> */}
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} >
         <CssBaseline />
             <Box
                 sx={{
