@@ -14,13 +14,13 @@ const Select = ({register, endOnClick, backToHomeOnClick, forgetOnClick}) => {
     const [selectState, setSelectState] = useState(login);
     const [person, setPerson] = useState({});
 
+    // { rowSize, columnSize, size(maxid), seat(2-DList) }
     const [seatLiShin, setSeatLiShin] = useState({});
     const [seatShinGuan, setSeatShinGuan] = useState({});
-    // { rowSize, columnSize, size(maxid), seat(2-DList) }
-    // rowsize columnsize may be wrong
+
     const [cover, setCover] = useState(false);
     const [coverSeatId, setCoverSeatId] = useState(0);
-
+    console.log(person);
     return (
         <Grid container component="main" sx={{ height: '80vh' }}
             direction="column"

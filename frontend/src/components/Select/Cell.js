@@ -17,6 +17,7 @@ const theme = createTheme({
 
 
 const Cell = ({where, cellInfo, coverOnClick, register}) => {
+    console.log(cellInfo);
     const buttonOnClick = async (cellInfo) => {
         // const ret = await QryEmpty(1, cellInfo.id); // where == 0 for shinguan(bug?)
         // console.log(ret);

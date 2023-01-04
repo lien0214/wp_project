@@ -1,4 +1,3 @@
-import {QryEmpty, SeatReturn, QryPosition} from './ApiFunc'
 const ShinGuan = 0, Lishin = 1;
 const rent = 0, ret = 1, search = 2;
 const seatHandling = (register, people, person, wheretosit) => {
@@ -27,6 +26,7 @@ const seatHandling = (register, people, person, wheretosit) => {
     }
     
     // fill registered attribute
+    console.log("person");
     console.log(person);
     people.map(p => {
         let r = parseInt(p.seatID / columnSize)
