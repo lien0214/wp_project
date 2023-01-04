@@ -16,6 +16,7 @@ const GetAll = async () => {
   return whr; // whr => all people's infor
 };
 const QryEmpty = async (wheretosit, seatID) => {
+    console.log(wheretosit, seatID);
     const ins = 1, account = -1, password = -1; //
     const {
       data: { message, whr, pos },
@@ -26,7 +27,7 @@ const QryEmpty = async (wheretosit, seatID) => {
       seatID, //
       ins
     });
-    console.log(whr);
+    // console.log(whr);
     return {whr, pos}; // whr => person's infor if rent, pos => 1 for rent and -1 for empty;
   };
 

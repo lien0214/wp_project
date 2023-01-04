@@ -79,6 +79,7 @@ router.post("/infor", async function (req, res) {
             }
             else {
               const exist = await SeatInfor.findOne({ wheretosit, seatID });
+              console.log(exist);
               if (exist) {
                 res.json({
                   message: "The seat is rent!",

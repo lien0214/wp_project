@@ -39,7 +39,7 @@ const Login = ({register, person, setPerson, setSelectState, forgetOnClick, setS
         else loginReturn = await LogCheck(account, password);
 
         let SeatLiShin, SeatShinGuan;
-        SeatLiShin = seatHandling(register, people, person, Lishin);  
+        // SeatLiShin = seatHandling(register, people, person, Lishin);  
         SeatShinGuan = seatHandling(register, people, person, ShinGuan);
         console.log(SeatLiShin);
         console.log(SeatShinGuan);

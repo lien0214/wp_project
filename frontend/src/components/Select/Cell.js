@@ -20,8 +20,15 @@ const theme = createTheme({
 
 
 const Cell = ({where, cellInfo, coverOnClick}) => {
-    const buttonOnClick = (cellInfo) => {
-        coverOnClick(cellInfo);
+    const buttonOnClick = async (cellInfo) => {
+        const ret = await QryEmpty(1, cellInfo.id); // where == 0 for shinguan(bug?)
+        console.log(ret);
+        if(ret.pos < 0)
+            coverOnClick(cellInfo);
+        else {
+            //TODO: show info of the rent seat
+            console.log(ret.whr);
+        }
     }
     return(
         <ThemeProvider theme={theme}>
