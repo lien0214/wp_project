@@ -67,7 +67,7 @@ import {AcntRegister, LogCheck, GetAll} from '../../util/ApiFunc'
 
 const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
-const Login = ({register, setPerson, setSelectState}) => {
+const Login = ({register, setPerson, setSelectState, forgetOnClick}) => {
     const [account, setAccount] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -178,15 +178,19 @@ const Login = ({register, setPerson, setSelectState}) => {
                 </button> */}
                 <Grid container sx={{ mt: 3, mb: 2 }}>
                     <Grid item xs>
-                    <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" variant="body2"
+                    <Link onClick={forgetOnClick} style={{fontSize: '5px'}}
                         display="flex"
                         justifyContent="flex-start"
                         alignItems="center">
                         Forgot password?
                     </Link>
                     </Grid>
-                    <Grid item>
-                    <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" variant="body2">
+                    <Grid item sx={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'flex-end',
+                    }}>
+                    <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{fontSize: '5px'}}>
                         {"terms of use"}
                     </Link>
                     </Grid>

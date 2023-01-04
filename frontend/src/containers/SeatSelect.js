@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import HomePage from '../components/Homepage';
 import Select from '../components/Select';
 import Restart from '../components/Restart';
+import Forget from '../components/Forget';
 import Box from '@mui/material/Box';
 
 // set seatSelectState constants
@@ -11,7 +12,7 @@ const homepage = 0, select = 1, restart = 2;
 const SeatSelect = () => {
     const [seatSelectState, setSeatSelectState] = useState(homepage);
     const [register, setRegister] = useState(rent); // register/rent or return
-
+    const [forget, setForget] = useState(false)
     // func to change seatSelectState in homepage
     const startRentOnClick = () => {
         setRegister(rent);
@@ -29,10 +30,14 @@ const SeatSelect = () => {
     const endOnClick = () => {
         setSeatSelectState(homepage);
     }
+    const forgetOnClick = () => {
+        setForget(true);
+    }
     // func to change seatSelectState in restart
     const backToHomeOnClick = () => {
         setRegister(rent);
         setSeatSelectState(homepage);
+        setForget(false);
     }
 
     // some func to add
@@ -44,10 +49,14 @@ const SeatSelect = () => {
                 startReturnOnClick={startReturnOnClick}
                 startSearchOnClick={startSearchOnClick}
             />}
-            {(seatSelectState === select) && <Select
+            {(seatSelectState === select) && (forget === true) && <Forget
+                backToHomeOnClick={backToHomeOnClick}
+            />}
+            {(seatSelectState === select) && (forget === false) && <Select
                 endOnClick={endOnClick}
                 register={register}
                 backToHomeOnClick={backToHomeOnClick}
+                forgetOnClick={forgetOnClick}
             />}
             {/* {(seatSelectState === restart) && <Restart
                 backToHomeOnClick={backToHomeOnClick}

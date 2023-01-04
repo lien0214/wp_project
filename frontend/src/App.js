@@ -20,6 +20,30 @@ const Container = styled.div`
   background-image: url('https://i.imgur.com/5NUUrFE.png');
 `
 
+function Copyright(props) {
+  return (
+    <Box sx={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      my: 2, mx: 2,
+      opacity: "100%",
+      }}>
+      <Typography 
+        variant="body2" color="text.secondary" align="center" {...props}>
+        {'Copyright © '}
+        <Link color="inherit" href="https://www.youtube.com/watch?v=6omHDfHITZ4">
+          NTU CSIE系學會的朋友的朋友
+        </Link>{' '}
+        {new Date().getFullYear()}
+      </Typography>
+      <Avatar sx={{m: 1, bgcolor: '#f0e935', height: "3vh", width: "3vh"}}>
+        <EggIcon sx={{height: "2vh", width: "2vh"}}/>
+      </Avatar>
+    </Box>
+  );
+}
+
 function App() {
   return (
     <Container className="App">
@@ -36,20 +60,7 @@ function App() {
             opacity: "80%",
             }}
           >
-        <Box sx={{my: 2, mx: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  opacity: "100%",}}
-            style={{fontSize: '2vh', color: 'black'}}
-              >
-              <Avatar sx={{ m: 2, mr: 1, bgcolor: '#f0e935', height: "4vh", width: "4vh"}}>
-                <EggIcon sx={{height: "3vh", width: "3vh"}}/>
-              </Avatar>
-              <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" variant="body2">
-                . .
-              </Link>
-        </Box>
-        
+        <Copyright/>
       </Grid>
     </Container>
   );
