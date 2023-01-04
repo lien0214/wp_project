@@ -36,9 +36,11 @@ const seatHandling = async (register, person) => {
     // fill registered attribute
     for(let r = 0, id = 1; r < rowSize; r++) {
         for(let c = 0; c < columnSize && id <= size; c++, id++) {
-            if(!(await QryEmpty(person.wheretosit, id))) {
+            const tmp = await QryEmpty(person.wheretosit, id);
+            if(tmp.pos > 0) {
                 seat[r][c].registered = true;
             }
+            else seat[r][c].registered = false;
         }
     }
     seat[person.id / columnSize][person.id % columnSize].ifReturn = true;
