@@ -149,7 +149,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick, ba
                     </Avatar>
                 </Button>
             </Box>
-            {cover && <Cover backToHomeOnClick={backToHomeOnClick} register={register}/>}
+            {cover && register!==search  && <Cover backToHomeOnClick={backToHomeOnClick} register={register}/>}
         </Grid>
     )
 }

@@ -36,6 +36,7 @@ const Select = ({register, endOnClick, backToHomeOnClick, forgetOnClick}) => {
                 forgetOnClick={forgetOnClick}
                 setSeatLiShin={setSeatLiShin}
                 setSeatShinGuan={setSeatShinGuan}
+                backToHomeOnClick={backToHomeOnClick}
             />}
             {selectState === wheretosit && <WhereToSit 
                 person={person}

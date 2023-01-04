@@ -25,13 +25,12 @@ const Contaner = styled.div`
 `
 
 
-const Cover = ({backToHomeOnClick, register, coverSeatId}) => {
+const Cover = ({backToHomeOnClick, register}) => {
 
     const setBackToHomeOnClick = () => {
         backToHomeOnClick();
     }
     
-    console.log("test", coverSeatId)
 
     return (
         <div className='container'>
