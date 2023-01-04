@@ -1,5 +1,6 @@
 
 import SeatSelect from './containers/SeatSelect'
+import Header from './components/Header'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,6 +10,9 @@ import Avatar from '@mui/material/Avatar';
 import EggIcon from '@mui/icons-material/Egg';
 import Link from '@mui/material/Link';
 import styled from 'styled-components'
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+
 
 const theme = createTheme();
 
@@ -20,24 +24,8 @@ function App() {
   return (
     <Container className="App">
       <CssBaseline />
-      <Grid container component="main" item
-            xs={false}
-            sx={{height: "10vh",
-            opacity: "80%",
-            }}
-          >
-        <Box sx={{my: 1, mx: 2,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  opacity: "100%",}}
-            style={{fontSize: '4vh', color: 'black'}}
-              >CSIE
-              <Avatar sx={{ m: 2, ml: 1, bgcolor: '#e79fc3', height: "4vh", width: "4vh"}}>
-                <ChairIcon sx={{height: "3vh", width: "3vh"}}/>
-              </Avatar>
-        </Box>
-      </Grid>
+      
+      <Header/>
 
       <SeatSelect/>
 
