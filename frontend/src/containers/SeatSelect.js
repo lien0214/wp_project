@@ -1,8 +1,7 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import HomePage from '../components/Homepage';
 import Select from '../components/Select';
-import Restart from '../components/Restart';
 import Forget from '../components/Forget';
 import Box from '@mui/material/Box';
 

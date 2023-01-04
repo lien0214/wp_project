@@ -1,39 +1,3 @@
-// import './Homepage.css'
-// import Button from '@material-ui/core/Button';
-// import React, { useState } from 'react';
-
-// const Homepage = ({startRentOnClick, startReturnOnClick, startSearchOnClick}) => {
-
-//     const setRentOnClick = () => {
-//         startRentOnClick()
-//     }
-//     const setReturnOnClick = () => {
-//         startReturnOnClick()
-//     }
-//     const SearchOnClick = () => {
-//         startSearchOnClick()
-//     }
-
-//     return (
-//         <div className='HomePage'>
-//             <img className='HomepageImg' src="https://i.imgur.com/nrBA0OV.jpg"/>
-//             <div className='toRent'>
-//                 <Button color="primary" style={{fontSize: '25px', color: 'white'}} variant="contained" onClick={setRentOnClick}>租借座位</Button>
-//             </div>
-//             <div className='toReturn'>
-//                 <Button color="secondary" style={{fontSize: '25px', color: 'white'}} variant="contained" onClick={setReturnOnClick}>歸還座位</Button>
-//             </div>
-//             <div className='toSearch'>
-//                 <Button style={{fontSize: '25px', color: 'white'}} onClick={SearchOnClick}>查詢座位</Button>
-//             </div>            
-//         </div>
-//     )
-// }
-// export default Homepage;
-
-
-
-
 import Button from '@material-ui/core/Button';
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';

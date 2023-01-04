@@ -1,53 +1,3 @@
-// import './Login.css';
-// import Button from '@material-ui/core/Button';
-// import React, { useState } from 'react';
-
-// const login = 0, wheretosit = 1, selecting = 2;
-// const Login = ({register, setPerson, setState}) => {
-//     const [account, setAccount] = useState('');
-//     const [password, setPassword] = useState('');
-
-//     const accountChange = (e) => {
-//         setAccount(e.target.value)
-//     }
-//     const passwordChange = (e) => {
-//         setPassword(e.target.value)
-//     }
-//     const submitOnClick = () => {
-//         setPerson({account: account, password: password});
-//         setState(register ? wheretosit : selecting);
-//     }
-
-//     return (
-//         <div className='Login'>
-//             {/* two text and one submit button */}
-//             <input
-//                 type='text'
-//                 className='inputAccount'
-//                 placeholder='please enter your account.'
-//                 value={account}
-//                 onChange={accountChange}
-//             />
-//             <input
-//                 type='text'
-//                 className='inputPassword'
-//                 placeholder='please enter your password.'
-//                 value={password}
-//                 onChange={passwordChange}
-//             />
-//             <div className='inputCheck'>
-//                 <Button
-//                 type='button'
-//                 disabled={!account || !password}
-//                 onClick={submitOnClick}
-//                 >Login</Button>
-//             </div>
-//         </div>
-//     )
-// }
-// export default Login;
-
-
 import Button from '@material-ui/core/Button';
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
@@ -62,12 +12,15 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import axios from '../../api'
 import {AcntRegister, LogCheck, GetAll} from '../../util/ApiFunc'
+import seatHandling from '../../util/seatHandling';
 
+// some const
+const ShinGuan = 0, Lishin = 1;
 const rent = 0, ret = 1, search = 2;
 const login = 0, wheretosit = 1, selecting = 2;
-const Login = ({register, setPerson, setSelectState, forgetOnClick}) => {
+
+const Login = ({register, person, setPerson, setSelectState, forgetOnClick, setSeatLiShin, setSeatShinGuan}) => {
     const [account, setAccount] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -80,21 +33,23 @@ const Login = ({register, setPerson, setSelectState, forgetOnClick}) => {
     }
     const submitOnClick = async () => {
         setPerson({account: account, password: password});
-        // const infor = await GetAll();
-        // console.log(infor);
-        let ret;
-        if(register === rent) ret = await AcntRegister(account, password);
-        else ret = await LogCheck(account, password);
+        let people = await GetAll();
+        let loginReturn;
+        if(register === rent) loginReturn = await AcntRegister(account, password);
+        else loginReturn = await LogCheck(account, password);
 
-        if(ret.valid === false) {
-            setErrorMessage(ret.message);
-        }
-        else {
-            // setSelectState(register === rent ? wheretosit : selecting);
-            setSelectState(wheretosit)
-        }
+        let SeatLiShin, SeatShinGuan;
+        SeatLiShin = seatHandling(register, people, person, Lishin);  
+        SeatShinGuan = seatHandling(register, people, person, ShinGuan);
+        console.log(SeatLiShin);
+        console.log(SeatShinGuan);
+        setSeatLiShin(SeatLiShin);
+        setSeatShinGuan(SeatShinGuan);
+        
         setAccount('');
         setPassword('');
+        if(loginReturn.valid === false) console.log(loginReturn.message);
+        else                            setSelectState(wheretosit);
     }
 
     return(

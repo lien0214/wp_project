@@ -1,51 +1,43 @@
 import {QryEmpty, SeatReturn, QryPosition} from './ApiFunc'
 const ShinGuan = 0, Lishin = 1;
 const rent = 0, ret = 1, search = 2;
-const seatHandling = (register, person) => {
+const seatHandling = (register, people, person, wheretosit) => {
     let seat = [];
     let columnSize, rowSize, size; // size for total count of seats including all kind of seats
     
-    // if(register !== rent) {
-    //     const positionRet = QryPosition(person.account, person.password);
-    //     console.log(positionRet);
-    //     person.wheretosit = positionRet.whr;
-    //     person.id = positionRet.pos;
-    // }
 
-    if(person.wheretosit === ShinGuan) {
+    if(wheretosit === ShinGuan) {
         [columnSize, rowSize, size] = [20, 5, 96];
     }
-    else if(person.wheretosit === Lishin) {
+    else if(wheretosit === Lishin) {
         [columnSize, rowSize, size] = [8, 5, 40];
     }
+
     // create seat
     for (let r = 0, id = 1; r < rowSize; r++) {
         let subCol = [];
         for (let c = 0; c < columnSize && id <= size; c++, id++) {
             subCol.push({
-                id: id,          
+                id: id - 1,          
                 registered: false,      
                 r: r, c: c,
-                person: {},
-                ifReturn: false
+                ifPersonSeat: false
             });
         }
         seat.push(subCol);
     }
     
     // fill registered attribute
-    for(let r = 0, id = 1; r < rowSize; r++) {
-        for(let c = 0; c < columnSize && id <= size; c++, id++) {
-            // const tmp = QryEmpty(person.wheretosit, id);
-            const tmp = {pos: -1};
-            if(tmp.pos > 0) {
-                seat[r][c].registered = true;
-            }
-            else seat[r][c].registered = false;
-        }
-    }
-    // seat[person.id / columnSize][person.id % columnSize].ifReturn = true;
-    
+    people.map(p => console.log(p));
+    people.map(p => {
+        let r = parseInt(p.seatID / columnSize)
+        let c = p.seatID % columnSize;
+        console.log('r: ' + r + ' c: ' + c);
+        seat[r][c].registered = true;
+        if(register === ret && person.account === p.person.account)
+            seat[r][c].ifPersonSeat = true;
+        console.log(seat[r][c])
+    })
     return { rowSize, columnSize, size, seat };
 }
 export default seatHandling;

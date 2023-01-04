@@ -13,8 +13,6 @@ const GetAll = async () => {
     seatID, //
     ins
   });
-  const first_seatid = whr[0].seatID;
-  console.log(first_seatid);
   return whr; // whr => all people's infor
 };
 const QryEmpty = async (wheretosit, seatID) => {

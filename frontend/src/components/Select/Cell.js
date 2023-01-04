@@ -19,28 +19,17 @@ const theme = createTheme({
 
 
 
-const Cell = ({where, cellInfo, coverOnClick, cover}) => {
-    const Qry = async () => {
-        const ret = await QryEmpty(where, cellInfo.id);
-        // const ret = true;
-        console.log(ret, cellInfo.id);
-        if(ret < 0)
-            return false;
-        else return true;
+const Cell = ({where, cellInfo, coverOnClick}) => {
+    const buttonOnClick = (cellInfo) => {
+        coverOnClick(cellInfo);
     }
-    // const clr = QryPos();
-    // const clr = "#72ed76";
-    // Qry();
-
-    console.log("test: ", cellInfo)
-
     return(
         <ThemeProvider theme={theme}>
         <CssBaseline />
         {cellInfo.registered === false && 
         (where === 1) && <Grid>
             {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 7)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -64,7 +53,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
                 </Button>
             }
             {((cellInfo.id % 8 === 2) || (cellInfo.id % 8 === 6) || (cellInfo.id % 8 === 0)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -88,7 +77,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
                 </Button>
             }
             {((cellInfo.id % 8 === 4) || (cellInfo.id % 8 === 5)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -116,7 +105,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
         {cellInfo.registered === false && 
         (where === 0) && <Grid>
             {((cellInfo.c === 10)) && 
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person) }
+                <Button onClick={() => buttonOnClick(cellInfo) }
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -141,7 +130,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
             }
             {(((cellInfo.c === 9 || cellInfo.c === 19)) ||
             (cellInfo.c === 15 && cellInfo.r === 4)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -165,7 +154,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
                 </Button>
             }
             {((cellInfo.c % 20 !== 10) && (cellInfo.c % 10 !== 9)) && (cellInfo.id != 96) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -207,7 +196,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
         {cellInfo.registered === true && 
         (where === 1) && <Grid>
             {((cellInfo.id % 8 === 1) || (cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 7)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -231,7 +220,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
                 </Button>
             }
             {((cellInfo.id % 8 === 2) || (cellInfo.id % 8 === 6) || (cellInfo.id % 8 === 0)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -255,7 +244,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
                 </Button>
             }
             {((cellInfo.id % 8 === 4) || (cellInfo.id % 8 === 5)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -283,7 +272,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
         {cellInfo.registered === true && 
         (where === 0) && <Grid>
             {((cellInfo.c === 10)) && 
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person) }
+                <Button onClick={() => buttonOnClick(cellInfo) }
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -308,7 +297,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
             }
             {(((cellInfo.c === 9 || cellInfo.c === 19)) ||
             (cellInfo.c === 15 && cellInfo.r === 4)) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
@@ -332,7 +321,7 @@ const Cell = ({where, cellInfo, coverOnClick, cover}) => {
                 </Button>
             }
             {((cellInfo.c % 20 !== 10) && (cellInfo.c % 10 !== 9)) && (cellInfo.id != 96) &&
-                <Button onClick={(cellInfo) => coverOnClick(cellInfo.person)}
+                <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
