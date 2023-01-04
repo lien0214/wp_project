@@ -33,7 +33,7 @@ const seatHandling = (register, people, person, wheretosit) => {
         let c = p.seatID % columnSize;
         if(p.wheretosit === wheretosit)
             seat[r][c].registered = true;
-        if(register === ret && person.account === p.account) {
+        if(register === ret && person.account === p.account && wheretosit === p.wheretosit) {
             console.log("someone same");
             seat[r][c].ifPersonSeat = true;
         }

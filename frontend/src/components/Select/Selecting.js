@@ -121,6 +121,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick, ba
                                     where={Lishin}
                                     cellInfo={cell}
                                     coverOnClick={coverOnclick}
+                                    register={register}
                                     key={r + '-' + c}
                                     id={cell.id}
                                 />

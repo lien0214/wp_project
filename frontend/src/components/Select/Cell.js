@@ -17,6 +17,9 @@ const theme = createTheme({
 
 
 const Cell = ({where, cellInfo, coverOnClick, register}) => {
+
+    const isdisabled = ((cellInfo.registered) || (register === 1))
+
     console.log(cellInfo);
     const buttonOnClick = async (cellInfo) => {
         // const ret = await QryEmpty(1, cellInfo.id); // where == 0 for shinguan(bug?)
@@ -45,7 +48,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginLeft: '2vh',
                         borderRadius: '5%',
                     }}
-                disabled={cellInfo.registered}
+                disabled={isdisabled}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -70,7 +73,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginRight: '2vh',
                         borderRadius: '5%',
                     }}
-                disabled={cellInfo.registered}
+                    disabled={isdisabled}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -94,7 +97,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         margin: '0.5vh',
                         borderRadius: '5%',
                     }}
-                disabled={cellInfo.registered}
+                    disabled={isdisabled}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -124,7 +127,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginLeft: '4vh',
                         borderRadius: '5%',
                     }}
-                disabled={cellInfo.registered}
+                    disabled={isdisabled}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -150,7 +153,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         marginRight: '4vh',
                         borderRadius: '5%',
                     }}
-                disabled={cellInfo.registered}
+                    disabled={isdisabled}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -174,7 +177,7 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         margin: '0.5vh',
                         borderRadius: '5%',
                     }}
-                disabled={cellInfo.registered}
+                    disabled={isdisabled}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -213,12 +216,11 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         maxHeight: '10vh',
                         minWidth: '10vh',
                         minHeight: '10vh',
-                        backgroundColor: "#6d6e6d",
+                        backgroundColor: "#ebd981",
                         margin: '0.5vh',
                         marginLeft: '2vh',
                         borderRadius: '5%',
                     }}
-                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -238,12 +240,11 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         maxHeight: '10vh',
                         minWidth: '10vh',
                         minHeight: '10vh',
-                        backgroundColor: "#6d6e6d",
+                        backgroundColor: "#ebd981",
                         margin: '0.5vh',
                         marginRight: '2vh',
                         borderRadius: '5%',
                     }}
-                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -257,17 +258,16 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                     </Box>
                 </Button>
             }
-            {((cellInfo.id % 8 === 4) || (cellInfo.id % 8 === 5)) &&
+            {((cellInfo.id % 8 === 3) || (cellInfo.id % 8 === 4)) &&
                 <Button onClick={() => buttonOnClick(cellInfo)}
                 style={{maxWidth: '10vh',
                         maxHeight: '10vh',
                         minWidth: '10vh',
                         minHeight: '10vh',
-                        backgroundColor: "#6d6e6d",
+                        backgroundColor: "#ebd981",
                         margin: '0.5vh',
                         borderRadius: '5%',
                     }}
-                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -292,12 +292,11 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         maxHeight: '10vh',
                         minWidth: '10vh',
                         minHeight: '10vh',
-                        backgroundColor: "#6d6e6d",
+                        backgroundColor: "#ebd981",
                         margin: '0.5vh',
                         marginLeft: '4vh',
                         borderRadius: '5%',
                     }}
-                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -318,12 +317,11 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         maxHeight: '10vh',
                         minWidth: '10vh',
                         minHeight: '10vh',
-                        backgroundColor: "#6d6e6d",
+                        backgroundColor: "#ebd981",
                         margin: '0.5vh',
                         marginRight: '4vh',
                         borderRadius: '5%',
                     }}
-                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
@@ -343,11 +341,10 @@ const Cell = ({where, cellInfo, coverOnClick, register}) => {
                         maxHeight: '10vh',
                         minWidth: '10vh',
                         minHeight: '10vh',
-                        backgroundColor: "#6d6e6d",
+                        backgroundColor: "#ebd981",
                         margin: '0.5vh',
                         borderRadius: '5%',
                     }}
-                    disabled={cellInfo.registered}
                 >
                     <Box sx={{
                     display: 'flex',
