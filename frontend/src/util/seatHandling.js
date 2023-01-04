@@ -1,16 +1,16 @@
 import {QryEmpty, SeatReturn, QryPosition} from './ApiFunc'
 const ShinGuan = 0, Lishin = 1;
 const rent = 0, ret = 1, search = 2;
-const seatHandling = async (register, person) => {
+const seatHandling = (register, person) => {
     let seat = [];
     let columnSize, rowSize, size; // size for total count of seats including all kind of seats
     
-    if(register !== rent) {
-        const positionRet = await QryPosition(person.account, person.password);
-        console.log(positionRet);
-        person.wheretosit = positionRet.whr;
-        person.id = positionRet.pos;
-    }
+    // if(register !== rent) {
+    //     const positionRet = QryPosition(person.account, person.password);
+    //     console.log(positionRet);
+    //     person.wheretosit = positionRet.whr;
+    //     person.id = positionRet.pos;
+    // }
 
     if(person.wheretosit === ShinGuan) {
         [columnSize, rowSize, size] = [20, 5, 96];
@@ -36,14 +36,15 @@ const seatHandling = async (register, person) => {
     // fill registered attribute
     for(let r = 0, id = 1; r < rowSize; r++) {
         for(let c = 0; c < columnSize && id <= size; c++, id++) {
-            const tmp = await QryEmpty(person.wheretosit, id);
+            // const tmp = QryEmpty(person.wheretosit, id);
+            const tmp = {pos: -1};
             if(tmp.pos > 0) {
                 seat[r][c].registered = true;
             }
             else seat[r][c].registered = false;
         }
     }
-    seat[person.id / columnSize][person.id % columnSize].ifReturn = true;
+    // seat[person.id / columnSize][person.id % columnSize].ifReturn = true;
     
     return { rowSize, columnSize, size, seat };
 }

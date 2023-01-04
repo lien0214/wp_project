@@ -1,6 +1,22 @@
 import axios from '../api';
 
 //POST
+
+const GetAll = async () => {
+  const ins = 2, account = -1, password = -1, wheretosit = 0, seatID = -1; //
+  const {
+    data: { message, whr, pos },
+  } = await axios.post('/infor', {
+    account,
+    password,
+    wheretosit, //
+    seatID, //
+    ins
+  });
+  const first_seatid = whr[0].seatID;
+  console.log(first_seatid);
+  return whr; // whr => all people's infor
+};
 const QryEmpty = async (wheretosit, seatID) => {
     const ins = 1, account = -1, password = -1; //
     const {
@@ -92,4 +108,5 @@ const AcntRegister = async (account, password) => {
     return { message, valid };
   };
 
-export {QryEmpty, SeatReturn, SeatRent, QryPosition, AcntRegister, LogCheck};
+
+export {QryEmpty, SeatReturn, SeatRent, QryPosition, AcntRegister, LogCheck, GetAll};
