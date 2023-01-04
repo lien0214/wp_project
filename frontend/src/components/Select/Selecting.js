@@ -16,10 +16,15 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick, ba
     
     //then get data from backend, maybe list of objects with accounts' information
     
-    const coverOnclick = (cellInfo) => {
+    const coverOnclick = async (cellInfo) => {
         seatid = cellInfo.id;
         setCover(true);
-        setPersonOnClick();
+        let newPerson = person;
+        newPerson['seatID'] = seatid;
+        setPerson(newPerson);
+        // console.log(person.account, person.password, wheretosit, seatid);
+        if(register === rent) await SeatRent(person.account, person.password, wheretosit, seatid);
+        else if(register === ret) await SeatReturn(person.account, person.password);
     }
     const setPersonOnClick = async () => {
         let newPerson = person;
@@ -39,7 +44,6 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick, ba
     // ret = await AcntRegister(account, password);
 
     const { rowSize, columnSize, size, seat } = person.wheretosit === Lishin ? seatLiShin : seatShinGuan;
-
     return (
         <Grid container component="main" sx={{
             display: 'flex',
@@ -77,6 +81,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick, ba
                                         where={ShinGuan}
                                         cellInfo={cell}
                                         coverOnClick={coverOnclick}
+                                        register={register}
                                         key={r + '-' + c}
                                         id={cell.id}
                                     />

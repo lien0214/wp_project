@@ -4,7 +4,6 @@ const rent = 0, ret = 1, search = 2;
 const seatHandling = (register, people, person, wheretosit) => {
     let seat = [];
     let columnSize, rowSize, size; // size for total count of seats including all kind of seats
-    
 
     if(wheretosit === ShinGuan) {
         [columnSize, rowSize, size] = [20, 5, 96];
@@ -28,15 +27,16 @@ const seatHandling = (register, people, person, wheretosit) => {
     }
     
     // fill registered attribute
-    people.map(p => console.log(p));
+    console.log(person);
     people.map(p => {
         let r = parseInt(p.seatID / columnSize)
         let c = p.seatID % columnSize;
-        console.log('r: ' + r + ' c: ' + c);
-        seat[r][c].registered = true;
-        if(register === ret && person.account === p.person.account)
+        if(p.wheretosit === wheretosit)
+            seat[r][c].registered = true;
+        if(register === ret && person.account === p.account) {
+            console.log("someone same");
             seat[r][c].ifPersonSeat = true;
-        console.log(seat[r][c])
+        }
     })
     return { rowSize, columnSize, size, seat };
 }

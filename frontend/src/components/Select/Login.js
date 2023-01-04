@@ -32,17 +32,17 @@ const Login = ({register, person, setPerson, setSelectState, forgetOnClick, setS
         setPassword(e.target.value)
     }
     const submitOnClick = async () => {
-        setPerson({account: account, password: password});
+        let newperson = {account: account, password: password};
+        setPerson(newperson);
         let people = await GetAll();
         let loginReturn;
         if(register === rent) loginReturn = await AcntRegister(account, password);
         else loginReturn = await LogCheck(account, password);
 
         let SeatLiShin, SeatShinGuan;
-        // SeatLiShin = seatHandling(register, people, person, Lishin);  
+        SeatLiShin = seatHandling(register, people, person, Lishin);  
         SeatShinGuan = seatHandling(register, people, person, ShinGuan);
-        console.log(SeatLiShin);
-        console.log(SeatShinGuan);
+
         setSeatLiShin(SeatLiShin);
         setSeatShinGuan(SeatShinGuan);
         

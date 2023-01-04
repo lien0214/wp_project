@@ -30,7 +30,7 @@ const Select = ({register, endOnClick, backToHomeOnClick, forgetOnClick}) => {
             {/* check folder select */}
             {selectState === login && <Login
                 register={register}
-                person={setPerson}
+                person={person}
                 setPerson={setPerson}
                 setSelectState={setSelectState}
                 forgetOnClick={forgetOnClick}
