@@ -26,7 +26,7 @@ const Selecting = ({ register, setPerson, person, setSelectState, endOnClick, ba
         newPerson['seatID'] = seatid;
         setPerson(newPerson);
         // console.log(person.account, person.password, wheretosit, seatid);
-        if(register === rent) await SeatRent(person.account, person.password, wheretosit, seatid);
+        if(register === rent) await SeatRent(person.account, person.password, person.wheretosit, seatid);
         else if(register === ret) await SeatReturn(person.account, person.password);
     }
     const setPersonOnClick = async () => {
