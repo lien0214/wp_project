@@ -1,5 +1,5 @@
 # wp_project
-在執行前請先yarn add @mui/material @mui/icons-material @material-ui/core @mui/system
+在執行前請先yarn install
 
 deploy:
 
