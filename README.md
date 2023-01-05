@@ -1,5 +1,6 @@
 # wp_project
 在執行前請先yarn install
+然後分別使用yarn frontend 和 yarn backend即可開始使用
 
 deploy:
 
