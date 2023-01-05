@@ -143,7 +143,7 @@ const Login = ({register, person, setPerson, setSelectState, forgetOnClick, setS
                 </button> */}
                 <Grid container sx={{ mt: 3, mb: 2 }}>
                     <Grid item xs>
-                    <Link onClick={forgetOnClick} style={{fontSize: '5px'}}
+                    <Link onClick={forgetOnClick} style={{fontSize: '8px'}}
                         display="flex"
                         justifyContent="flex-start"
                         alignItems="center">
@@ -155,7 +155,7 @@ const Login = ({register, person, setPerson, setSelectState, forgetOnClick, setS
                         justifyContent: 'flex-end',
                         alignItems: 'flex-end',
                     }}>
-                    <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{fontSize: '5px'}}>
+                    <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{fontSize: '8px'}}>
                         {"terms of use"}
                     </Link>
                     </Grid>

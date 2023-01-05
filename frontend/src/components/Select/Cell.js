@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@material-ui/core/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ChairIcon from '@mui/icons-material/Chair';
+
 
 const theme = createTheme({
     palette: {
@@ -15,8 +16,9 @@ const theme = createTheme({
   });
 
 
-
 const Cell = ({where, cellInfo, coverOnClick, register}) => {
+
+    const [wrong, Setwrong] = useState(false)
 
     const isdisabled = ((cellInfo.registered) || (register === 1))
 
